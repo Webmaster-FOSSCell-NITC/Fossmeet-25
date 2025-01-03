@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Container>
       <Section className="flex items-center justify-center">
-        FOSSMEET 25
+        FOSSMEET  25
       </Section>
     </Container>
   );
