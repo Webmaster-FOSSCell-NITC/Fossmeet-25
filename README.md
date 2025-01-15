@@ -2,10 +2,9 @@
 This repository contains the code to foss meet 2025 landing site
 
 ## Links
-- [main host]()
+- [main host](https://fossmeet.net/)
 - [staging host](https://fosscellnitcalicut.github.io/Fossmeet-25/)
-- [figma file]()
-- [notion file]()
+- [figma file](https://www.figma.com/design/6v0d6EG9hlWVg0hhuVWWfm/FOSSMeet'25?node-id=26-2&p=f&t=isZzfiCwc06CCVh9-0)
 
 ## Developer guidelines
 The following guidelines are to be followed to ensure uniform coding standards amongst all team members
@@ -17,7 +16,9 @@ The following guidelines are to be followed to ensure uniform coding standards a
 - every branch should be named &lt;issueNo&gt;-&lt;details&gt;
     - eg: a branch for creating navbar would be navbar-1
 - follow naming schemes and folder structure as per [Directory Structure](#directory-structure)
-- use google fonts wherever possible else refer fonts folder for available fonts
+- import fonts from `src/fonts` whenever needed
+- default colours have been set under the variable names --primary, --secondary, --white respectively and can be used in tailwind as `bg-primary` `text-secondary` etc 
+
 
 
 
