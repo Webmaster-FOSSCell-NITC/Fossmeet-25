@@ -3,7 +3,7 @@ This repository contains the code to foss meet 2025 landing site
 
 ## Links
 - [main host]()
-- [staging host]()
+- [staging host](https://fosscellnitcalicut.github.io/Fossmeet-25/)
 - [figma file]()
 - [notion file]()
 
