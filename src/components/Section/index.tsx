@@ -16,7 +16,7 @@ const Section = ({
     borderTop = false,
 }: SectionProps) => {
     return (
-        <section id={id} className={`relative w-full px-4 md:px-16 flex justify-center ${borderTop ? 'border border-white border-0 border-t-[1px]' : ''}`}>
+        <section id={id} className={`relative w-full px-4 md:px-16 flex justify-center ${borderTop ? 'border border-[rgba(59,59,59,0.25)] border-0 border-t-[1px]' : ''}`}>
             <div className={`w-full max-w-[1920px] ${className}`}>
                 {children}
             </div>
