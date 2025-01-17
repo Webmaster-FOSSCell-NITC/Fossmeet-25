@@ -2,6 +2,7 @@ import Container from "@/components/Container";
 import Section from "@/components/Section";
 import { lato } from "@/fonts";
 import styles from './styles.module.css'
+import Marquee from "@/components/Marquee";
 
 export default function Home() {
   return (
@@ -37,8 +38,29 @@ export default function Home() {
           image
         </div>
       </Section>
-      <Section className="flex items-center justify-center h-screen w-full" id="about-us" borderTop>
-        about us
+      <Marquee />
+      <Section className="flex items-center justify-center min-h-[75dvh] h-full w-full" id="about-us" borderTop>
+        <div className="w-1/3 border border-0 border-e-[1px] border-e-secondary/25 min-h-[75dvh] h-full relative">
+          <button>
+            <span className="text-base font-normal p-2 w-[25px] h-[25px] absolute top-10 left-10 rounded-full border border-px border-secondary/25 flex items-center justify-center"> i </span>
+          </button>
+          <img src="/landing-page/about-us-image.png" alt="about-us-image" className="w-full h-full object-fit-cover" />
+        </div>
+        <div className="w-2/3 ps-[64px] py-[87px] flex flex-col items-start justify-between min-h-[75dvh] h-full">
+          <div className="flex flex-col gap-4">
+            <span className={`${lato.className} font-normal text-5xl`}> About </span>
+            <span className={`${styles.outlinedText} text-primary text-5xl`}> FOSSMeet </span>
+          </div>
+
+          <p className="text-2xl font-normal w-2/3">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac aliquam orci. Integer hendrerit volutpat mauris sit amet fringilla. Nullam ullamcorper lorem sed consectetur sollicitudin. Vestibulum pretium mi non dui venenatis maximus.
+          </p>
+
+          <div className="text-2xl font-normal flex flex-col gap-4">
+            <span> Check out our past meet </span>
+            <button className="bg-primary py-[7px] px-[7px]"> FOSSMeet &apos;24 </button>
+          </div>
+        </div>
       </Section>
       <Section className="flex items-center justify-center h-screen w-full" id="workshops" borderTop>
         workshops
