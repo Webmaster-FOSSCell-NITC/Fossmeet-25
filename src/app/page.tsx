@@ -3,11 +3,12 @@ import Section from "@/components/Section";
 import { lato } from "@/fonts";
 import styles from './styles.module.css'
 import Marquee from "@/components/Marquee";
+import Image from 'next/image'
 
 export default function Home() {
   return (
     <Container>
-      <Section className="flex items-center justify-start h-screen w-full" id="hero">
+      <Section className="flex items-center justify-start h-screen w-full relative" id="hero">
         <div className="h-full w-full flex flex-col items-start justify-center p-24">
           <div className="flex flex-col gap-8">
             <h1 className={`${lato.className} font-medium text-8xl`}> FOSSMeet&apos;25 </h1>
@@ -34,8 +35,13 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div>
-          image
+        <div className="absolute bottom-0 -right-4 md:-right-16 h-fit w-fit">
+          <Image
+            src="/landing-page/hero-imagae.png"
+            alt="landing-page-image"
+            width={1024}
+            height={1024}
+          />
         </div>
       </Section>
       <Marquee />
@@ -63,10 +69,15 @@ export default function Home() {
         </div>
       </Section>
       <Section className="flex items-center justify-center h-screen w-full" id="workshops" borderTop>
-        workshops
-      </Section>
+        <div className="flex flex-col gap-4 w-full">
+          <span className={`${lato.className} font-normal text-5xl`}> Engaging </span>
+          <span className={`${styles.outlinedText} text-primary text-5xl`}> Workshops </span>
+        </div>      </Section>
       <Section className="flex items-center justify-center h-screen w-full" id="speakers" borderTop>
-        speakers
+        <div className="flex flex-col gap-4 w-full">
+          <span className={`${lato.className} font-normal text-5xl`}> Meet our  </span>
+          <span className={`${styles.outlinedText} text-primary text-5xl`}> Speakers </span>
+        </div>
       </Section>
     </Container>
   );
