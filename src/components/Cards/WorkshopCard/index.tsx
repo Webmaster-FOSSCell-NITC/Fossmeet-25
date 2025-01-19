@@ -5,7 +5,17 @@ import { lato } from "@/fonts";
  * Displays a workshop card with a logo, title, date, duration, description, and speaker information.
  *
  * @param {WorkshopCardProps} props - Props for the WorkshopCard component.
+ * @param {string} [props.logoUrl] - image representing the workshop
+* @param {string} [props.title] - Title of the workshop
+ * @param {string} [props.date] - date in which the workshop will be happening
+ * @param {string} [props.duration] - duration of the workshop
+ * @param {string} [props.description] - brief idea on what the workshop will be about
+ * @param {string} [props.speakerName] - host of the workshop
+ * @param {string} [props.speakerImageUrl] - profile pic of the host
+ * @param {string} [props.link] - registration url
  * @returns The rendered workshop card component.
+ * 
+ * @author Arshiya Padiyath Puthenkattil Ibrahim HAFIS
  */
 const WorkshopCard = ({
     logoUrl,
@@ -23,8 +33,8 @@ const WorkshopCard = ({
                 <Image
                     src={logoUrl}
                     alt={`${title} Logo`}
+                    className="object-fit-cover"
                     layout="fill"
-                    objectFit="cover"
                 />
             </div>
 
