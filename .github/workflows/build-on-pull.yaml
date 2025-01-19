@@ -1,0 +1,26 @@
+name: Run and verify errors on every pull request and any changes made to pull request.
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies and build
+        run: |
+          npm install --legacy-peer-deps
+          npm run build
