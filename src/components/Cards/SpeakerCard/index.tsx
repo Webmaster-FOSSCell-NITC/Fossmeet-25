@@ -8,15 +8,15 @@ import { gloriaHallelujah } from "@/fonts";
  * @returns The rendered speaker card component.
  */
 const SpeakerCard = ({
-    type,
+    orientation,
     name,
     talkTitle,
     speakerImageUrl,
 }: SpeakerCardProps) => {
   return (
     <div
-      className={`relative w-[250px] h-[400px] bg-[#FF8B4A] shadow-lg p-4 rounded-lg flex flex-col justify-between overflow-hidden`}>
-        <div className="absolute left-[-30px] bottom-[0px] w-[300px] h-[95%] ">
+      className={`relative w-[250px] h-[400px] bg-primary shadow-lg flex-col justify-between overflow-hidden outline`}>
+        <div className="absolute left-[-30px] bottom-[-50px] w-[300px] h-[95%]">
             <Image
             src={speakerImageUrl}
             alt={`${name} Picture`}
@@ -25,14 +25,14 @@ const SpeakerCard = ({
             className=""
             />
         </div>
-        {type === 'right' ? (
+        {orientation === 'right' ? (
             <div className="absolute top-[25px] right-[35px] text-center">
-                <h2 className="text-[#3B3B3B] text-[20px] font-bold">{name}</h2>
+                <h2 className="text-secondary text-[20px] font-bold">{name}</h2>
                 <p className="text-white text-[14px] mt-1">{talkTitle}</p>
             </div>
         ) : (
             <div className="absolute top-[25px] left-[35px] text-center">
-                <h2 className="text-[#3B3B3B] text-[20px] font-bold">{name}</h2>
+                <h2 className="text-secondary text-[20px] font-bold">{name}</h2>
                 <p className="text-white text-[14px] mt-1">{talkTitle}</p>
             </div>
         )}
@@ -43,7 +43,7 @@ const SpeakerCard = ({
 export default SpeakerCard;
 
 export interface SpeakerCardProps {
-    type:'left' | 'right';
+    orientation:'left' | 'right';
     name: string;
     talkTitle: string;
     speakerImageUrl: string;

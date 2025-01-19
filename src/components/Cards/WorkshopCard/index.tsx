@@ -18,7 +18,7 @@ const WorkshopCard = ({
     link,
 }: WorkshopCardProps) => {
     return (
-        <div className={`border border-[#3B3B3B40] shadow-lg p-0 w-[300px] h-[450px] flex flex-col justify-between ${lato.className}`}>
+        <div className={`border border-secondary/25 shadow-lg p-0 w-[300px] h-[450px] flex flex-col justify-between ${lato.className}`}>
             <div className="w-full h-[250px] relative">
                 <Image
                     src={logoUrl}
@@ -31,17 +31,17 @@ const WorkshopCard = ({
             <div className=" py-[7px] px-[10px] overflow-hidden">
                 <h2 className="text-[24px] font-bold text-gray-800 mb-[3px]">{title}</h2>
                 <div className="flex items-center space-x-[8px] mb-[27px]">
-                    <span className="bg-[#B0B0B033] text-[#3B3B3B] text-[10px] px-[10px] py-[5px] rounded-[98px]">
+                    <span className="bg-[#B0B0B033] text-secondary text-[10px] px-[10px] py-[5px] rounded-[98px]">
                         {date}
                     </span>
-                    <span className="bg-[#B0B0B033] text-[#3B3B3B]  text-[10px] px-[10px] py-[5px] rounded-[98px]">
+                    <span className="bg-[#B0B0B033] text-secondary  text-[10px] px-[10px] py-[5px] rounded-[98px]">
                         {duration}
                     </span>
                 </div>
                 <p className="text-[#3B3B3BA6] text-[14px]">{description}</p>
             </div>
 
-            <div className="flex items-center justify-between bg-[#FF8B4A]">
+            <div className="flex items-center justify-between bg-primary">
                 <div className="flex items-center space-x-3  py-[7px] px-[11px] gap-[11px]">
                     <Image
                         src={speakerImageUrl}
@@ -57,7 +57,7 @@ const WorkshopCard = ({
                         href={link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center bg-[#3B3B3B] text-white h-full"
+                        className="flex items-center justify-center bg-secondary text-white h-full"
                     >
                         <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect width="50" height="50" fill="#3B3B3B" />
