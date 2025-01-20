@@ -25,3 +25,8 @@ body {
 ::-webkit-scrollbar-thumb {
   width: 0;
 }
+
+*::selection {
+  background-color: var(--secondary);
+  color: var(--primary);
+}

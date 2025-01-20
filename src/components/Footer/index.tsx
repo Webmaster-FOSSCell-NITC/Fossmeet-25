@@ -60,7 +60,7 @@ const Footer = () => {
             <div className={`w-full py-[10px] px-[16px] bg-primary ${lato.className} flex items-center justify-between`}>
                 <div className="flex gap-2">
                     <img src="/footer/logo.svg" alt="footer-logo" height={25} width={25} />
-                    <h4 className="font-bold text-xl lg:text-2xl"> FOOSMeet &apos;25 </h4>
+                    <h4 className="font-bold text-xl lg:text-2xl"> FOSSMeet &apos;25 </h4>
                 </div>
                 <span className="font-normal text-base hidden lg:block"> An event conducted by FOSSCell NITC in collaboration with CSEA </span>
             </div>

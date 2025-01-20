@@ -248,9 +248,20 @@ export default function Home() {
           </p>
 
           <button className="bg-primary py-[7px] px-[7px]"> View All Speakers &nbsp; &rarr; </button>
+        </div>
+      </Section>
 
+      <Section borderTop className="flex flex-col gap-14 items-center justify-center my-14 h-full">
+        <div className="flex flex-col items-center justify-center ">
+          <h3 className={`text-2xl lg:text-5xl font-bold ${lato.className}`}> FOSSMeet&apos;25 </h3>
+          <span className="text-2xl lg:text-5xl text-primary"> powered by </span>
         </div>
 
+
+        <div className="w-2/3 h-full flex items-center justify-center gap-16 flex-wrap">
+          <Image src="/landing-page/fossunited.png" alt="foss-united" height={250} width={250} className="object-fit-cover" />
+          <Image src="/landing-page/nilenso.png" alt="nilenso" height={250} width={250} className="object-fit-cover" />
+        </div>
       </Section>
     </Container>
   );
