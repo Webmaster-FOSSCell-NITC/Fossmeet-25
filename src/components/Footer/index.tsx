@@ -1,4 +1,5 @@
 import { cantarell, inconsolate, lato } from "@/fonts";
+import Image from "next/image";
 import { useMemo } from "react";
 
 type DataType = {
@@ -39,10 +40,10 @@ const Footer = () => {
     return (
         <footer className="h-full">
             <div className="bg-secondary text-white px-[16px] py-[40px] flex items-center gap-[40px] justify-start">
-                <div className="outline h-[550px] w-[560px]">
-                    <img src="" alt="ascii-art" className="w-full h-full object-fit-cover" />
+                <div className="h-[550px] w-[560px]">
+                    <Image src="/footer/foss-ascii.png" alt="ascii-art" className="w-full h-full object-fit-cover" width={500} height={500} />
                 </div>
-                <div className="flex flex-col justify-center items-start">
+                <div className="flex ms-24 flex-col justify-center items-start">
                     <span className={`text-primary ${cantarell.className} text-2xl font-bold`}> contact@FOSSMeet-25 </span>
                     <span className="border border-white border-dashed w-full mb-[16px]" />
                     {
