@@ -1,5 +1,5 @@
 
-import { Geist, Geist_Mono, Gloria_Hallelujah, Lato, Alexandria, Zen_Tokyo_Zoo } from "next/font/google";
+import { Geist, Geist_Mono, Gloria_Hallelujah, Lato, Alexandria, Zen_Tokyo_Zoo, Cantarell, Inconsolata } from "next/font/google";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -36,6 +36,18 @@ const zenTokyoZoo = Zen_Tokyo_Zoo({
     variable: "--font-zen-tokyo-zoo",
 })
 
+const cantarell = Cantarell({
+    subsets: ['latin'],
+    weight: ['400', '700'],
+    variable: "--font-cantarell",
+})
+
+const inconsolate = Inconsolata({
+    subsets: ['latin'],
+    weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
+    variable: "--font-inconsolate"
+})
+
 
 export {
     geistMono,
@@ -44,4 +56,6 @@ export {
     lato,
     alexandria,
     zenTokyoZoo,
+    cantarell,
+    inconsolate
 }
