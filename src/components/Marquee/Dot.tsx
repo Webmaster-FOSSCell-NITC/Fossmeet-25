@@ -7,7 +7,7 @@ const Dot = ({
     fill?: "primary" | "secondary" | "white",
     outline?: "primary" | "secondary" | "white",
 }) => {
-    const className = useMemo(() => `w-[32px] h-[32px] p-2 rounded-full outline outline-${outline} outline-[1px] bg-${fill}`, [outline, fill]);
+    const className = useMemo(() => `w-[16px] lg:w-[32px] h-[16px] lg:h-[32px] p-2 rounded-full outline outline-${outline} outline-[1px] bg-${fill}`, [outline, fill]);
     return (
         <span className={className} />
     )
