@@ -1,3 +1,5 @@
+"use client"
+
 import { AnimatePresence, motion } from "framer-motion";
 import { Children, JSX, ReactNode, useCallback, useEffect, useRef, useState } from "react";
 
@@ -5,6 +7,7 @@ import { Children, JSX, ReactNode, useCallback, useEffect, useRef, useState } fr
  * creates an image carousel component with the given list of image URLs
  * 
  * @param {children} [CarouselProps.children] - Elements to be put into the carousel, only one child will be displayed at once
+ * @param {children} [CarouselProps.className] - Permit override of classes in the component
  * @param {boolean} [CarouselProps.showArrows] - Shows left and right arrows for quick movement (defaults to true)
  * @param {boolean} [CarouselProps.controls] - Show controls for the carousel (defaults to false)
  * @param {boolean} [CarouselProps.autoPlay] - Autoplay the carousel (defaults to true)
@@ -14,6 +17,7 @@ import { Children, JSX, ReactNode, useCallback, useEffect, useRef, useState } fr
  */
 const Carousel = ({
     children,
+    className = "",
     controls = false,
     showArrows = true,
     autoPlay = true,
@@ -56,7 +60,7 @@ const Carousel = ({
     }, [autoPlay, elements.length]);
 
     return (
-        <div className='h-full w-full relative'>
+        <div className={`p-2 md:p-4 lg:p-10 relative ${className}`}>
             <div className="h-full w-full overflow-hidden relative drop-shadow-xl flex items-center justify-center">
                 <AnimatePresence initial={false}>
                     <motion.div
@@ -106,6 +110,7 @@ const Carousel = ({
 export default Carousel;
 export interface CarouselProps {
     children: ReactNode,
+    className?: string,
     controls?: boolean;
     showArrows?: boolean;
     autoPlay?: boolean;
