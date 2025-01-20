@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { gloriaHallelujah } from "@/fonts";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body
         className={`${gloriaHallelujah.className} antialiased`}
       >
+        <Navbar />
         {children}
         <Footer />
       </body>
