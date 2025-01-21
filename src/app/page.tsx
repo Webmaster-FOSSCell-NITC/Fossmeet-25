@@ -7,140 +7,14 @@ import Image from 'next/image'
 import WorkshopCard, { WorkshopCardProps } from "@/components/Cards/WorkshopCard";
 import Carousel from "@/components/Carousel";
 import SpeakerCard, { SpeakerCardProps } from "@/components/Cards/SpeakerCard";
+import { getWorkshops } from "@/lib/workshops";
+import { getSpeakers } from "@/lib/speakers";
 
-const dummyWorkshopData: WorkshopCardProps[] = [
-  {
-    logoUrl: "/card/fastapi.png",
-    title: "Fast Api",
-    date: "24th March, 2025",
-    duration: "5 hours",
-    description: "Fast api workshop onli",
-    speakerName: "Mayank Gupta",
-    speakerImageUrl: "/card/sp.png",
-    link: "https://www.google.com",
-  },
-  {
-    logoUrl: "/card/fastapi.png",
-    title: "Fast Api",
-    date: "24th March, 2025",
-    duration: "5 hours",
-    description: "Fast api workshop onli",
-    speakerName: "Mayank Gupta",
-    speakerImageUrl: "/card/sp.png",
-    link: "https://www.google.com",
-  },
-  {
-    logoUrl: "/card/fastapi.png",
-    title: "Fast Api",
-    date: "24th March, 2025",
-    duration: "5 hours",
-    description: "Fast api workshop onli",
-    speakerName: "Mayank Gupta",
-    speakerImageUrl: "/card/sp.png",
-    link: "https://www.google.com",
-  },
-  {
-    logoUrl: "/card/fastapi.png",
-    title: "Fast Api",
-    date: "24th March, 2025",
-    duration: "5 hours",
-    description: "Fast api workshop onli",
-    speakerName: "Mayank Gupta",
-    speakerImageUrl: "/card/sp.png",
-    link: "https://www.google.com",
-  },
-  {
-    logoUrl: "/card/fastapi.png",
-    title: "Fast Api",
-    date: "24th March, 2025",
-    duration: "5 hours",
-    description: "Fast api workshop onli",
-    speakerName: "Mayank Gupta",
-    speakerImageUrl: "/card/sp.png",
-    link: "https://www.google.com",
-  },
-  {
-    logoUrl: "/card/fastapi.png",
-    title: "Fast Api",
-    date: "24th March, 2025",
-    duration: "5 hours",
-    description: "Fast api workshop onli",
-    speakerName: "Mayank Gupta",
-    speakerImageUrl: "/card/sp.png",
-    link: "https://www.google.com",
-  },
-  {
-    logoUrl: "/card/fastapi.png",
-    title: "Fast Api",
-    date: "24th March, 2025",
-    duration: "5 hours",
-    description: "Fast api workshop onli",
-    speakerName: "Mayank Gupta",
-    speakerImageUrl: "/card/sp.png",
-    link: "https://www.google.com",
-  },
-  {
-    logoUrl: "/card/fastapi.png",
-    title: "Fast Api",
-    date: "24th March, 2025",
-    duration: "5 hours",
-    description: "Fast api workshop onli",
-    speakerName: "Mayank Gupta",
-    speakerImageUrl: "/card/sp.png",
-    link: "https://www.google.com",
-  },
-];
+export default async function Home() {
 
-const dummySpeakerData: SpeakerCardProps[] = [
-  {
-    orientation: "left",
-    name: "Mayank Gupta",
-    talkTitle: "why CSEA sucks",
-    speakerImageUrl: "/card/sp.png",
-  },
-  {
-    orientation: "right",
-    name: "Not Mayank Gupta",
-    talkTitle: "Why CSEA doesn't suck",
-    speakerImageUrl: "/card/sp1.png",
-  },
-  {
-    orientation: "left",
-    name: "Mayank Gupta",
-    talkTitle: "why CSEA sucks",
-    speakerImageUrl: "/card/sp.png",
-  },
-  {
-    orientation: "right",
-    name: "Not Mayank Gupta",
-    talkTitle: "Why CSEA doesn't suck",
-    speakerImageUrl: "/card/sp1.png",
-  }, {
-    orientation: "left",
-    name: "Mayank Gupta",
-    talkTitle: "why CSEA sucks",
-    speakerImageUrl: "/card/sp.png",
-  },
-  {
-    orientation: "right",
-    name: "Not Mayank Gupta",
-    talkTitle: "Why CSEA doesn't suck",
-    speakerImageUrl: "/card/sp1.png",
-  }, {
-    orientation: "left",
-    name: "Mayank Gupta",
-    talkTitle: "why CSEA sucks",
-    speakerImageUrl: "/card/sp.png",
-  },
-  {
-    orientation: "right",
-    name: "Not Mayank Gupta",
-    talkTitle: "Why CSEA doesn't suck",
-    speakerImageUrl: "/card/sp1.png",
-  },
-];
+  const workshops = await getWorkshops();
+  const speakers = await getSpeakers();
 
-export default function Home() {
   return (
     <Container>
       <Section className="flex items-center justify-start h-screen w-screen relative" id="hero">
@@ -217,7 +91,7 @@ export default function Home() {
         <div className="mt-10 lg:mt-0 w-full h-full flex items-center justify-center">
           <Carousel className="w-full h-full" maxPerPage={3}>
             {
-              dummyWorkshopData.map((data, index) => (
+              workshops.map((data, index) => (
                 <div key={index} className="flex items-center justify-center">
                   <WorkshopCard {...data} />
                 </div>
@@ -231,9 +105,9 @@ export default function Home() {
         <div className="w-full lg:w-1/2 h-full flex items-center justify-center">
           <Carousel className="w-full h-full" maxPerPage={2}>
             {
-              dummySpeakerData.map((data, index) => (
+              speakers.map((data, index) => (
                 <div key={index} className="flex items-center justify-center">
-                  <SpeakerCard {...data} />
+                  <SpeakerCard {...data} orientation={index % 2 ? 'left' : 'right'} />
                 </div>
               ))
             }
