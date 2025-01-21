@@ -29,12 +29,13 @@ const WorkshopCard = ({
 }: WorkshopCardProps) => {
     return (
         <div className={`border border-secondary/25 shadow-lg p-0 w-[300px] flex flex-col justify-between ${lato.className}`}>
-            <div className="w-full h-[250px] relative">
+            <div className="w-full h-[250px] overflow-hidden relative">
                 <Image
                     src={logoUrl}
                     alt={`${title} Logo`}
                     className="object-fit-cover"
-                    layout="fill"
+                    width={300}
+                    height={300}
                 />
             </div>
 

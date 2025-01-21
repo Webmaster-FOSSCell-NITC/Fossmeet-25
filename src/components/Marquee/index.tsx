@@ -1,11 +1,20 @@
 import Dot from "./Dot";
 import { zenTokyoZoo, alexandria } from "@/fonts";
 import FastMarquee from 'react-fast-marquee'
-const Marquee = () => {
+import { JSX } from 'react'
+
+
+/**
+ * marquee element for home page
+ * @returns {JSX.Element} the component to be rendered
+ * 
+ * @author Diljith P D
+ */
+const Marquee = (): JSX.Element => {
     return (
         <div className="w-full flex flex-col">
             <div className="w-full bg-primary text-secondary">
-                <FastMarquee>
+                <FastMarquee gradient={false}>
                     <div className="flex items-center h-full gap-3 lg:gap-8 justify-center pe-3 lg:pe-8 py-0 lg:py-3">
                         <span className={`${zenTokyoZoo.className} font-normal text-2xl lg:text-[64px] leading-[64px]`}> OPEN SOURCE </span>
                         <Dot fill="primary" outline="secondary" />
@@ -19,7 +28,7 @@ const Marquee = () => {
                 </FastMarquee>
             </div>
             <div className="w-full bg-secondary text-white">
-                <FastMarquee direction="right">
+                <FastMarquee direction="right" gradient={false}>
                     <div className="flex items-center h-full gap-3 lg:gap-8 justify-center pe-3 lg:pe-8 py-0 lg:py-3">
                         <span className={`${zenTokyoZoo.className} font-normal text-2xl lg:text-[64px] leading-[64px]`}> APACHE </span>
                         <Dot fill="secondary" outline="white" />

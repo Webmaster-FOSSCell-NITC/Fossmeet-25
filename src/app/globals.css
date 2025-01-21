@@ -27,6 +27,6 @@ body {
 }
 
 *::selection {
-  background-color: var(--secondary);
+  background-color: rgba(30, 30, 30, 1);
   color: var(--primary);
 }
