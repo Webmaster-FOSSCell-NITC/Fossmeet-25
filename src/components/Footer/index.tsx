@@ -40,12 +40,11 @@ const Footer = () => {
     return (
         <footer className="h-full relative overflow-hidden">
             <div className="bg-secondary text-white px-[16px] lg:p-[40px] flex items-center gap-[40px] justify-start">
-                <div className="h-[550px] w-[560px] absolute lg:static opacity-[10%] lg:opacity-100 left-[5rem] bottom-[-2rem]">
+                <div className="h-[550px] w-[550px]  absolute lg:static opacity-[10%] lg:opacity-100 left-[5rem] bottom-[-2rem]">
                     <Image src="/footer/foss-ascii.png" alt="ascii-art" className="w-full h-full object-fit-cover" width={500} height={500} />
                 </div>
-                <div className="w-full flex m-0 lg:ms-24 flex-col justify-center items-start">
-                    <span className={`text-primary ${cantarell.className} text-2xl font-bold`}> contact@FOSSMeet-25 </span>
-                    <span className="border border-white border-dashed w-full mb-[16px]" />
+                <div className="flex m-0 lg:ms-24 flex-col justify-center items-start">
+                    <span className={`text-primary ${cantarell.className} text-2xl font-bold border border-0 border-b-[2px] pb-[16px] border-dashed mb-[32px]`}> contact<span className="text-white">@</span>FOSSMeet-25 </span>
                     {
                         Object.keys(data).map((key, index) => (
                             <span key={index} className={`flex gap-1 text-xl lg:text-2xl font-semibold ${inconsolate.className}`}>

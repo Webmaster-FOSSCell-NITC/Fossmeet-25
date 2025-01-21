@@ -22,18 +22,18 @@ export default async function Home() {
           <div className="flex flex-col gap-8">
             <h1 className={`${lato.className} font-medium text-center lg:text-left text-5xl lg:text-8xl`}> FOSSMeet&apos;25 </h1>
             <div>
-              <span className={`text-2xl lg:text-5xl font-normal leading-[64px]`}>
+              <span className={`text-2xl lg:text-5xl font-normal !leading-[68px]`}>
                 Celebrating
-                <span className={`text-primary ${styles.outlinedText}`}> 20 years </span>
+                <span className={`text-primary ${styles.outlinedText} !leading-[68px]`}> 20 years </span>
               </span>
               <br />
-              <span className="text-2xl lg:text-5xl font-normal leading-[64px]"> of FOSSMeet </span>
+              <span className="text-2xl lg:text-5xl font-normal !leading-[68px]"> of FOSSMeet </span>
             </div>
           </div>
           <div className="flex flex-col gap-8 mt-14 lg:mt-24">
             <span className="text-base lg:text-2xl font-normal"> March 14th - 16th 2025 </span>
             <div className={`${lato.className} flex flex-col lg:flex-row`}>
-              <div className="flex items-center justify-center bg-primary px-[4px] py-[7px] pe-[24px]">
+              <div className="flex items-center justify-center bg-primary ps-0 px-[36px] py-[7px] gap-0 lg:gap-[17px]">
                 <img src="/landing-page/map-marker.svg" alt="location" height={25} width={25} />
                 <span> NIT CALICUT </span>
               </div>
@@ -67,17 +67,17 @@ export default async function Home() {
             <span className={`${styles.outlinedText} text-primary text-2xl lg:text-5xl`}> FOSSMeet </span>
           </div>
 
-          <p className="text-sm lg:text-2xl font-normal w-full lg:w-2/3">
+          <p className="!leading-[24px] lg:!leading-[44px] text-sm lg:text-2xl font-normal w-full lg:w-2/3">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac aliquam orci. Integer hendrerit volutpat mauris sit amet fringilla. Nullam ullamcorper lorem sed consectetur sollicitudin. Vestibulum pretium mi non dui venenatis maximus.
           </p>
 
-          <div className="text-sm lg:text-2xl font-normal flex flex-col gap-4">
+          <div className="!leading-[24px] lg:!leading-[44px] text-sm lg:text-2xl font-normal flex flex-col gap-4">
             <span> Check out our past meet </span>
             <button className="bg-primary py-[7px] px-[7px]"> FOSSMeet &apos;24 </button>
           </div>
         </div>
       </Section>
-      <Section className="flex flex-col items-center justify-start h-full lg:h-screen w-full p-0 py-4 lg:py-14" id="workshops" borderTop>
+      <Section className="flex flex-col items-center justify-start h-full lg:min-h-screen h-full w-full p-0 py-4 lg:py-14" id="workshops" borderTop>
         <div className="flex justify-between gap-4 w-full items-center">
           <div className="flex flex-col gap-0 lg:gap-4 w-full">
             <span className={`${lato.className} font-normal text-2xl lg:text-5xl`}> Engaging </span>
@@ -101,9 +101,9 @@ export default async function Home() {
 
         </div>
       </Section>
-      <Section className="flex flex-col-reverse lg:flex-row items-center justify-start h-full lg:h-screen w-full py-14" id="speakers" borderTop>
+      <Section className="flex flex-col-reverse lg:flex-row items-center justify-start h-full lg:min-h-screen h-full w-full" id="speakers" borderTop>
         <div className="w-full lg:w-1/2 h-full flex items-center justify-center">
-          <Carousel className="w-full h-full" maxPerPage={2}>
+          <Carousel className="w-full" maxPerPage={2}>
             {
               speakers.map((data, index) => (
                 <div key={index} className="flex items-center justify-center">
@@ -113,11 +113,11 @@ export default async function Home() {
             }
           </Carousel>
         </div>
-        <div className="w-full lg:w-1/2 h-full flex lg:ps-14 flex-col items-start gap-4">
+        <div className="w-full lg:w-1/2 h-full flex lg:ps-14 flex-col items-start justify-center gap-4">
           <span className={`${lato.className} font-normal text-2xl lg:text-5xl`}> Meet our  </span>
           <span className={`${styles.outlinedText} text-primary text-2xl lg:text-5xl`}> Speakers </span>
 
-          <p className="text-base lg:text-xl font-normal leading-[44px] w-full lg:w-2/3">
+          <p className="!leading-[24px] lg:!leading-[44px] text-base lg:text-xl font-normal leading-[44px] w-full lg:w-2/3">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac aliquam orci. Integer hendrerit volutpat mauris sit amet fringilla. Nullam ullamcorper lorem sed consectetur sollicitudin.
           </p>
 
@@ -125,16 +125,20 @@ export default async function Home() {
         </div>
       </Section>
 
-      <Section borderTop className="flex flex-col gap-14 items-center justify-center my-14 h-full">
+      <Section borderTop className="flex flex-col gap-[46px] items-center justify-center my-14 h-full">
         <div className="flex flex-col items-center justify-center ">
           <h3 className={`text-2xl lg:text-5xl font-bold ${lato.className}`}> FOSSMeet&apos;25 </h3>
-          <span className="text-2xl lg:text-5xl text-primary"> powered by </span>
+          <span className={`${styles.outlinedText} text-primary text-2xl lg:text-5xl`}> powered by </span>
         </div>
 
 
         <div className="w-2/3 h-full flex items-center justify-center gap-16 flex-wrap">
-          <Image src="/landing-page/fossunited.png" alt="foss-united" height={250} width={250} className="object-fit-cover" />
-          <Image src="/landing-page/nilenso.png" alt="nilenso" height={250} width={250} className="object-fit-cover" />
+          <div className="w-[250px] h-[150px] flex items-center justify-center">
+            <Image src="/landing-page/fossunited.svg" alt="foss-united" className="w-full h-full object-fit-cover" width={250} height={150} />
+          </div>
+          <div className="w-[250px] h-[150px] flex items-center justify-center">
+            <Image src="/landing-page/nilenso.svg" alt="nilenso" className="w-full h-full object-fit-cover" width={250} height={150} />
+          </div>
         </div>
       </Section>
     </Container>
