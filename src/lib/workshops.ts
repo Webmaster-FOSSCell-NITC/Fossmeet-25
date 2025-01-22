@@ -1,8 +1,8 @@
 import { WorkshopCardProps } from '@/components/Cards/WorkshopCard'
-import { revalidateTime } from '@/sanity/env'
-import { client } from '@/sanity/lib/client'
-import { Workshop } from '@/sanity/schemas/workshop'
-import { urlForImage } from '@/sanity/lib/image'
+import { revalidateTime } from '../../sanity/env'
+import { client } from '../../sanity/lib/client'
+import { Workshop } from '../../sanity/schemas/workshop'
+import { urlForImage } from '../../sanity/lib/image'
 
 export const getWorkshops = async (): Promise<WorkshopCardProps[]> => {
     const workshops = await client.fetch<Workshop[]>(
