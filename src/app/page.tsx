@@ -9,11 +9,13 @@ import Carousel from "@/components/Carousel";
 import SpeakerCard, { SpeakerCardProps } from "@/components/Cards/SpeakerCard";
 import { getWorkshops } from "@/lib/workshops";
 import { getSpeakers } from "@/lib/speakers";
+import Button from "@/components/Button";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
-
   const workshops = await getWorkshops();
   const speakers = await getSpeakers();
+
 
   return (
     <Container>
@@ -72,10 +74,10 @@ export default async function Home() {
           </p>
 
           <div className="!leading-[24px] lg:!leading-[44px] text-sm lg:text-2xl font-normal flex flex-col gap-4">
-          <br/>
-            
+            <br />
+
             <span> Check out our past meet </span>
-            <button className="bg-primary py-[7px] px-[7px]"> FOSSMeet &apos;24 </button>
+            <Button className="text-base lg:text-2xl" href='/gallery'> Gallery </Button>
           </div>
         </div>
       </Section>
@@ -86,7 +88,7 @@ export default async function Home() {
             <span className={`${styles.outlinedText} text-primary text-2xl lg:text-5xl`}> Workshops </span>
           </div>
 
-          <button className="bg-primary py-[7px] px-[7px] text-nowrap"> View all Workshops &nbsp; &rarr; </button>
+          <Button className="text-sm lg:text-xl text-nowrap" disabled> View all Workshops </Button>
 
         </div>
 
@@ -123,7 +125,7 @@ export default async function Home() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac aliquam orci. Integer hendrerit volutpat mauris sit amet fringilla. Nullam ullamcorper lorem sed consectetur sollicitudin.
           </p>
 
-          <button className="bg-primary py-[7px] px-[7px]"> View All Speakers &nbsp; &rarr; </button>
+          <Button disabled className="text-sm lg:text-xl" > View All Speakers </Button>
         </div>
       </Section>
 
