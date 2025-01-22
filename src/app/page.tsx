@@ -68,10 +68,12 @@ export default async function Home() {
           </div>
 
           <p className="!leading-[24px] lg:!leading-[44px] text-sm lg:text-2xl font-normal w-full lg:w-2/3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac aliquam orci. Integer hendrerit volutpat mauris sit amet fringilla. Nullam ullamcorper lorem sed consectetur sollicitudin. Vestibulum pretium mi non dui venenatis maximus.
+            Since its inception in 2005, FOSSMeet has been a premier platform for promoting Free and Open Source Software, fostering innovation, collaboration, and open standards. Bringing together brilliant minds from India and beyond, it has a rich history of inspiring and empowering the FOSS community through engaging talks, workshops, and discussions, continuing to connect enthusiasts and advocates worldwide.
           </p>
 
           <div className="!leading-[24px] lg:!leading-[44px] text-sm lg:text-2xl font-normal flex flex-col gap-4">
+          <br/>
+            
             <span> Check out our past meet </span>
             <button className="bg-primary py-[7px] px-[7px]"> FOSSMeet &apos;24 </button>
           </div>
