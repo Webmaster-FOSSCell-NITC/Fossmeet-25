@@ -79,7 +79,8 @@ export default async function Home() {
           </div>
         </div>
       </Section>
-      <Section className="flex flex-col items-center justify-start h-full lg:min-h-screen h-full w-full p-0 py-4 lg:py-14" id="workshops" borderTop>
+
+      {/* <Section className="flex flex-col items-center justify-start h-full lg:min-h-screen h-full w-full p-0 py-4 lg:py-14" id="workshops" borderTop>
         <div className="flex justify-between gap-4 w-full items-center">
           <div className="flex flex-col gap-0 lg:gap-4 w-full">
             <span className={`${lato.className} font-normal text-2xl lg:text-5xl`}> Engaging </span>
@@ -125,7 +126,7 @@ export default async function Home() {
 
           <button className="bg-primary py-[7px] px-[7px]"> View All Speakers &nbsp; &rarr; </button>
         </div>
-      </Section>
+      </Section> */}
 
       <Section borderTop className="flex flex-col gap-[46px] items-center justify-center my-14 h-full">
         <div className="flex flex-col items-center justify-center ">
