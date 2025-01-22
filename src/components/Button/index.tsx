@@ -1,6 +1,6 @@
 'use client'
 
-import { JSX, MouseEventHandler, ReactNode } from "react";
+import { JSX, MouseEventHandler, ReactNode, useMemo } from "react";
 import { motion } from 'framer-motion'
 
 /**
@@ -22,29 +22,37 @@ const Button = ({
     className = "",
     disabled = false,
 }: ButtonProps): JSX.Element => {
+
+
+    const buttonAnimationConfig = useMemo(() => ({
+        initia: {
+            backgroundColor: 'var(--primary)',
+            color: 'var(--secondary)',
+            borderColor: 'var(--primary)',
+            scale: 1,
+        },
+        whileHover: {
+            backgroundColor: 'var(--white)',
+            color: 'var(--secondary)',
+            borderColor: 'var(--secondary)',
+            scale: 1.01,
+        },
+        whileTap: {
+            backgroundColor: 'var(--secondary)',
+            color: 'var(--white)',
+            borderColor: 'var(--secondary)',
+            scale: 0.99,
+        },
+    }), []);
+
+
     return (
         <motion.button
             onClick={onClick}
-            className={`relative flex items-center justify-center py-[7px] px-[48px] border border-px ${className}`}
+            className={`relative flex items-center justify-center py-[7px] px-[48px] border border-px disabled:opacity-50 bg-primary disabled:cursor-not-allowed ${className}`
+            }
             disabled={disabled}
-            initial={{
-                backgroundColor: 'var(--primary)',
-                color: 'var(--secondary)',
-                borderColor: 'var(--primary)',
-                scale: 1,
-            }}
-            whileHover={{
-                backgroundColor: 'var(--white)',
-                color: 'var(--secondary)',
-                borderColor: 'var(--secondary)',
-                scale: 1.01,
-            }}
-            whileTap={{
-                backgroundColor: 'var(--secondary)',
-                color: 'var(--white)',
-                borderColor: 'var(--secondary)',
-                scale: 0.99,
-            }}
+            {...(!disabled && buttonAnimationConfig)}
         >
             <div>
                 {children}
@@ -52,7 +60,7 @@ const Button = ({
             <span className="absolute right-[12px] top-[50%] translate-y-[-50%] h-[16px] w-[16px] flex items-center justify-center">
                 &rarr;
             </span>
-        </motion.button>
+        </motion.button >
     )
 }
 
