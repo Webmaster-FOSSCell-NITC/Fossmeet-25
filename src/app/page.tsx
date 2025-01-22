@@ -11,6 +11,7 @@ import { getWorkshops } from "@/lib/workshops";
 import { getSpeakers } from "@/lib/speakers";
 import Button from "@/components/Button";
 import { redirect } from "next/navigation";
+import Dialog from "@/components/Dialog";
 
 export default async function Home() {
   const workshops = await getWorkshops();
@@ -57,12 +58,7 @@ export default async function Home() {
       </Section>
       <Marquee />
       <Section className="flex flex-col-reverse lg:flex-row items-center justify-center min-h-[75dvh] h-full w-full" id="about-us" borderTop>
-        <div className="w-full lg:w-1/3 border border-0 lg:border-e-[1px] border-e-secondary/25 min-h-[75dvh] h-full relative">
-          <button>
-            <span className="text-base font-normal p-2 w-[25px] h-[25px] absolute top-10 left-10 rounded-full border border-px border-secondary/25 flex items-center justify-center"> i </span>
-          </button>
-          <img src="/landing-page/about-us-image.png" alt="about-us-image" className="w-full h-full object-fit-cover" />
-        </div>
+        <Dialog />
         <div className="w-full lg:w-2/3 ps-0 lg:ps-[64px] py-[87px] flex flex-col items-start justify-between min-h-[75dvh] h-full">
           <div className="flex flex-col gap-4">
             <span className={`${lato.className} font-normal text-2xl lg:text-5xl`}> About </span>
