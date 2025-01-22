@@ -120,7 +120,7 @@ export default async function Home() {
           <span className={`${styles.outlinedText} text-primary text-2xl lg:text-5xl`}> Speakers </span>
 
           <p className="!leading-[24px] lg:!leading-[44px] text-base lg:text-xl font-normal leading-[44px] w-full lg:w-2/3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac aliquam orci. Integer hendrerit volutpat mauris sit amet fringilla. Nullam ullamcorper lorem sed consectetur sollicitudin.
+            Join us to explore a dynamic lineup of speakers as they share their expertise, ignite ideas, and inspire meaningful change within our community.
           </p>
 
           <button className="bg-primary py-[7px] px-[7px]"> View All Speakers &nbsp; &rarr; </button>
