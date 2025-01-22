@@ -1,5 +1,6 @@
 import { cantarell, inconsolate, lato } from "@/fonts";
 import Image from "next/image";
+import Link from "next/link";
 import { useMemo } from "react";
 
 type DataType = {
@@ -20,20 +21,29 @@ type DataType = {
 
 const Footer = () => {
 
+    // const data: DataType = useMemo((): DataType => ({
+    //     'Host': "National Institute of Technology Calicut",
+    //     'Date': "14, 15 and 16 March 2025",
+    //     'Status': "54 days to go...",
+    //     'Mobile': "+91 8921969412",
+    //     'E-mail': "fosscell@nitc.ac.in",
+    //     'Instagram': "@fosscell_nitc",
+    //     'Telegram': "//foss_me",
+    //     'Twitter': "//fosscell",
+    //     'Speakers': "/speakers",
+    //     'Workshops': "/workshops",
+    //     'FAQ': "/faq",
+    //     'Register': "/register",
+    //     'FOSSMeet-24': "www.fossmeet.net/old",
+    // }), []);
+
+
     const data: DataType = useMemo((): DataType => ({
         'Host': "National Institute of Technology Calicut",
         'Date': "14, 15 and 16 March 2025",
-        'Status': "54 days to go...",
-        'Mobile': "+91 8921969412",
-        'E-mail': "fosscell@nitc.ac.in",
+        'e-mail': "info@fossmeet.net",
         'Instagram': "@fosscell_nitc",
-        'Telegram': "//foss_me",
-        'Twitter': "//fosscell",
-        'Speakers': "/speakers",
-        'Workshops': "/workshops",
-        'FAQ': "/faq",
-        'Register': "/register",
-        'FOSSMeet-24': "www.fossmeet.net/old",
+        'Telegram': "t.me/foss_meet",
     }), []);
 
 
