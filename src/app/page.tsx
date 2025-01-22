@@ -81,7 +81,8 @@ export default async function Home() {
           </div>
         </div>
       </Section>
-      <Section className="flex flex-col items-center justify-start h-full lg:min-h-screen h-full w-full p-0 py-4 lg:py-14" id="workshops" borderTop>
+
+      {/* <Section className="flex flex-col items-center justify-start h-full lg:min-h-screen h-full w-full p-0 py-4 lg:py-14" id="workshops" borderTop>
         <div className="flex justify-between gap-4 w-full items-center">
           <div className="flex flex-col gap-0 lg:gap-4 w-full">
             <span className={`${lato.className} font-normal text-2xl lg:text-5xl`}> Engaging </span>
@@ -122,12 +123,12 @@ export default async function Home() {
           <span className={`${styles.outlinedText} text-primary text-2xl lg:text-5xl`}> Speakers </span>
 
           <p className="!leading-[24px] lg:!leading-[44px] text-base lg:text-xl font-normal leading-[44px] w-full lg:w-2/3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac aliquam orci. Integer hendrerit volutpat mauris sit amet fringilla. Nullam ullamcorper lorem sed consectetur sollicitudin.
+            Join us to explore a dynamic lineup of speakers as they share their expertise, ignite ideas, and inspire meaningful change within our community.
           </p>
 
           <Button disabled className="text-sm lg:text-xl" > View All Speakers </Button>
         </div>
-      </Section>
+      </Section> */}
 
       <Section borderTop className="flex flex-col gap-[46px] items-center justify-center my-14 h-full">
         <div className="flex flex-col items-center justify-center ">
