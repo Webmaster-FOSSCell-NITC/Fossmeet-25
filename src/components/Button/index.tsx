@@ -1,5 +1,7 @@
-import { JSX, MouseEventHandler, ReactNode } from "react";
+'use client'
 
+import { JSX, MouseEventHandler, ReactNode } from "react";
+import { motion } from 'framer-motion'
 
 /**
  * global button component for a consistent design across pages
@@ -21,14 +23,36 @@ const Button = ({
     disabled = false,
 }: ButtonProps): JSX.Element => {
     return (
-        <button onClick={onClick} className={`relative flex items-center justify-center py-[7px] px-[48px] bg-primary ${className}`} disabled={disabled}>
+        <motion.button
+            onClick={onClick}
+            className={`relative flex items-center justify-center py-[7px] px-[48px] border border-px ${className}`}
+            disabled={disabled}
+            initial={{
+                backgroundColor: 'var(--primary)',
+                color: 'var(--secondary)',
+                borderColor: 'var(--primary)',
+                scale: 1,
+            }}
+            whileHover={{
+                backgroundColor: 'var(--white)',
+                color: 'var(--secondary)',
+                borderColor: 'var(--secondary)',
+                scale: 1.01,
+            }}
+            whileTap={{
+                backgroundColor: 'var(--secondary)',
+                color: 'var(--white)',
+                borderColor: 'var(--secondary)',
+                scale: 0.99,
+            }}
+        >
             <div>
                 {children}
             </div>
-            <span className="absolute right-[12px] top-[calc(50%-8px)] h-[16px] w-[16px] flex items-center justify-center">
+            <span className="absolute right-[12px] top-[50%] translate-y-[-50%] h-[16px] w-[16px] flex items-center justify-center">
                 &rarr;
             </span>
-        </button>
+        </motion.button>
     )
 }
 
