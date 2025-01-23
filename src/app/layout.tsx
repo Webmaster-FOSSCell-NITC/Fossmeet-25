@@ -5,6 +5,9 @@ import { gloriaHallelujah } from "@/fonts";
 export const metadata: Metadata = {
   title: "FOSSMeet'25",
   description: "Official Website of FOSSMeet'25",
+  icons: {
+    icon: "/favicon.jpeg"
+  }
 };
 
 export default function RootLayout({
