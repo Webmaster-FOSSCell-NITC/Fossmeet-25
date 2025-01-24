@@ -1,7 +1,11 @@
 "use client"
 
-import { AnimatePresence, motion } from "framer-motion";
-import { Children, JSX, ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { Children, JSX, ReactNode, useRef, useState } from "react";
+import Slider from 'react-slick'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import PrevArrow from "./PrevArrow";
+import NextArrow from "./NextArrow";
 
 /**
  * creates an image carousel component with the given list of image URLs
@@ -9,8 +13,7 @@ import { Children, JSX, ReactNode, useCallback, useEffect, useRef, useState } fr
  * @param {children} [CarouselProps.children] - Elements to be put into the carousel, only one child will be displayed at once
  * @param {children} [CarouselProps.className] - Permit override of classes in the component
  * @param {boolean} [CarouselProps.showArrows] - Shows left and right arrows for quick movement (defaults to true)
- * @param {boolean} [CarouselProps.controls] - Show controls for the carousel (defaults to false)
- * @param {boolean} [CarouselProps.autoPlay] - Autoplay the carousel (defaults to true)
+ * @param {number} [CarouselProps.maxPerPage] - Maximum number of items to be displayed per slide
  * @returns {JSX.Element} - Carousel component
  * 
  * @author Diljith P D
@@ -18,76 +21,58 @@ import { Children, JSX, ReactNode, useCallback, useEffect, useRef, useState } fr
 const Carousel = ({
     children,
     className = "",
-    controls = false,
     showArrows = true,
-    autoPlay = true,
+    maxPerPage = 3,
 }: CarouselProps): JSX.Element => {
-    const [currentElement, setCurrentElement] = useState(0);
-    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
     const elements = Children.toArray(children);
-
-    useEffect(() => {
-        if (autoPlay) {
-            timeoutRef.current = setInterval(() => {
-                if (elements.length === 0)
-                    setCurrentElement(0);
-                else
-                    setCurrentElement(prev => (prev + 1) % elements.length);
-            }, 4000)
-        }
-
-        return () => {
-            if (timeoutRef.current)
-                clearInterval(timeoutRef.current);
-        }
-    }, [autoPlay, elements.length]);
-
-
-    const handleControl = useCallback((index: number) => {
-        if (timeoutRef.current)
-            clearInterval(timeoutRef.current);
-        if (index < 0 || index >= elements.length)
-            return;
-        setCurrentElement(index);
-        if (autoPlay) {
-            timeoutRef.current = setInterval(() => {
-                if (elements.length === 0)
-                    setCurrentElement(0);
-                else
-                    setCurrentElement(prev => (prev + 1) % elements.length);
-            }, 4000)
-        }
-    }, [autoPlay, elements.length]);
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [slideCount, setSlideCount] = useState(3);
+    const sliderRef = useRef<Slider>(null);
+    const settings = {
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: maxPerPage,
+        slidesToScroll: maxPerPage,
+        initialSlide: 0,
+        // afterChange: (current: number) => { console.log(current); setCurrentSlide(current) },
+        responsive: [
+            {
+                breakpoint: 1280,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 920,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ],
+        prevArrow: showArrows ? <PrevArrow /> : undefined,
+        nextArrow: showArrows ? <NextArrow /> : undefined,
+        // customPaging: (index: number) => (
+        //     <div className={`w-3 h-3 rounded-full ${currentSlide === index ? 'bg-primary' : 'bg-secondary'}`} />
+        // ),
+    };
 
     return (
-        <div className={`p-2 md:p-4 lg:p-10 relative ${className}`}>
-            <div className="h-full w-full overflow-hidden relative drop-shadow-xl flex items-center justify-center">
-                <AnimatePresence initial={false}>
-                    <motion.div
-                        key={currentElement}
-                        initial={{ x: '100%', position: 'absolute' }}
-                        animate={{ x: '0%', position: 'relative' }}
-                        exit={{ x: '-100%', position: 'absolute' }}
-                        transition={{ duration: 0.8, ease: [0.445, 0.05, 0.55, 0.95] }}
-                        className='object-cover w-full h-full'
-                    >
-                        {elements[currentElement]}
-                    </motion.div>
-                </AnimatePresence >
-            </div>
-            {
-                showArrows && (
-                    <div>
-                        <button onClick={() => handleControl(currentElement - 1)} className="bg-secondary absolute top-[calc(50%-25px)] -left-[calc(50px+1rem)] w-[50px] h-[50px] p-[7px] flex items-center justify-center">
-                            <img src="/carousel/left-arrow.svg" alt="left-arrow" height={25} width={25} />
-                        </button>
-                        <button onClick={() => handleControl(currentElement + 1)} className="bg-secondary absolute top-[calc(50%-25px)] -right-[calc(50px+1rem)] w-[50px] h-[50px] p-[7px] flex items-center justify-center">
-                            <img src="/carousel/right-arrow.svg" alt="left-arrow" height={25} width={25} />
-                        </button>
-                    </div>
-                )
-            }
-            {
+        <div className={`relative ${className}`}>
+            <Slider ref={sliderRef} {...settings} className="p-2 md:p-4 lg:p-10 relative">
+                {
+                    elements.map((child, index) => (
+                        <div key={index} className="flex items-center justify-center w-full">
+                            {child}
+                        </div>
+                    ))
+                }
+            </Slider>
+            {/* {
                 controls && (
                     <div className='absolute -bottom-8 left-0 w-full h-8 flex items-center justify-center gap-2'>
                         {
@@ -101,7 +86,7 @@ const Carousel = ({
                         }
                     </div>
                 )
-            }
+            } */}
         </div>
 
     )
@@ -111,7 +96,6 @@ export default Carousel;
 export interface CarouselProps {
     children: ReactNode,
     className?: string,
-    controls?: boolean;
     showArrows?: boolean;
-    autoPlay?: boolean;
+    maxPerPage?: number,
 }

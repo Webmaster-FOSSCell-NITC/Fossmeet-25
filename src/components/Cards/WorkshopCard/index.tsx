@@ -28,27 +28,28 @@ const WorkshopCard = ({
     link,
 }: WorkshopCardProps) => {
     return (
-        <div className={`border border-secondary/25 shadow-lg p-0 w-[300px] h-[450px] flex flex-col justify-between ${lato.className}`}>
-            <div className="w-full h-[250px] relative">
+        <div className={`border border-secondary/25 shadow-lg p-0 w-[300px] flex flex-col justify-between ${lato.className}`}>
+            <div className="w-full h-[250px] overflow-hidden relative">
                 <Image
                     src={logoUrl}
                     alt={`${title} Logo`}
                     className="object-fit-cover"
-                    layout="fill"
+                    width={300}
+                    height={300}
                 />
             </div>
 
-            <div className=" py-[7px] px-[10px] overflow-hidden">
+            <div className=" py-[7px] px-[10px] overflow-hidden h-[225px]">
                 <h2 className="text-[24px] font-bold text-gray-800 mb-[3px]">{title}</h2>
                 <div className="flex items-center space-x-[8px] mb-[27px]">
                     <span className="bg-[#B0B0B033] text-secondary text-[10px] px-[10px] py-[5px] rounded-[98px]">
                         {date}
                     </span>
                     <span className="bg-[#B0B0B033] text-secondary  text-[10px] px-[10px] py-[5px] rounded-[98px]">
-                        {duration}
+                        {duration} hours
                     </span>
                 </div>
-                <p className="text-[#3B3B3BA6] text-[14px]">{description}</p>
+                <p className="text-[#3B3B3BA6] text-[14px]"> {description.substring(0, 128)}... </p>
             </div>
 
             <div className="flex items-center justify-between bg-primary">

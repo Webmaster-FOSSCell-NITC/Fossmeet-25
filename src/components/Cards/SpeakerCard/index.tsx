@@ -14,7 +14,7 @@ import { gloriaHallelujah } from "@/fonts";
  * @author Arshiya Padiyath Puthenkattil Ibrahim HAFIS
  */
 const SpeakerCard = ({
-    orientation,
+    orientation = 'left',
     name,
     talkTitle,
     speakerImageUrl,
@@ -22,23 +22,24 @@ const SpeakerCard = ({
     return (
         <div
             className={`relative w-[250px] h-[400px] bg-primary shadow-lg flex-col justify-between overflow-hidden`}>
-            <div className="absolute left-[-30px] bottom-[-50px] w-[300px] h-[95%]">
+            <div className="absolute left-0 bottom-[-50px] w-[300px] h-[350px]">
                 <Image
                     src={speakerImageUrl}
                     alt={`${name} Picture`}
-                    layout="fill"
                     className="object-fit-cover"
+                    width={500}
+                    height={500}
                 />
             </div>
             {orientation === 'right' ? (
                 <div className="absolute top-[25px] right-[35px] text-center">
-                    <h2 className="text-secondary text-[20px] font-bold">{name}</h2>
-                    <p className="text-white text-[14px] mt-1">{talkTitle}</p>
+                    <h2 className="text-secondary text-[20px] font-bold"> {name} </h2>
+                    <p className="text-white text-[14px] mt-1"> {talkTitle} </p>
                 </div>
             ) : (
                 <div className="absolute top-[25px] left-[35px] text-center">
-                    <h2 className="text-secondary text-[20px] font-bold">{name}</h2>
-                    <p className="text-white text-[14px] mt-1">{talkTitle}</p>
+                    <h2 className="text-secondary text-[20px] font-bold"> {name} </h2>
+                    <p className="text-white text-[14px] mt-1"> {talkTitle} </p>
                 </div>
             )}
         </div>
@@ -48,7 +49,7 @@ const SpeakerCard = ({
 export default SpeakerCard;
 
 export interface SpeakerCardProps {
-    orientation: 'left' | 'right';
+    orientation?: 'left' | 'right';
     name: string;
     talkTitle: string;
     speakerImageUrl: string;

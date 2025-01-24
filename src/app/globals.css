@@ -25,3 +25,8 @@ body {
 ::-webkit-scrollbar-thumb {
   width: 0;
 }
+
+*::selection {
+  background-color: rgba(30, 30, 30, 1);
+  color: var(--primary);
+}
