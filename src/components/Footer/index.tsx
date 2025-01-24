@@ -21,23 +21,6 @@ type DataType = {
 
 const Footer = () => {
 
-    // const data: DataType = useMemo((): DataType => ({
-    //     'Host': "National Institute of Technology Calicut",
-    //     'Date': "14, 15 and 16 March 2025",
-    //     'Status': "54 days to go...",
-    //     'Mobile': "+91 8921969412",
-    //     'E-mail': "fosscell@nitc.ac.in",
-    //     'Instagram': "@fosscell_nitc",
-    //     'Telegram': "//foss_me",
-    //     'Twitter': "//fosscell",
-    //     'Speakers': "/speakers",
-    //     'Workshops': "/workshops",
-    //     'FAQ': "/faq",
-    //     'Register': "/register",
-    //     'FOSSMeet-24': "www.fossmeet.net/old",
-    // }), []);
-
-
     const data: DataType = useMemo((): DataType => ({
         'Host': "National Institute of Technology Calicut",
         'Date': "14, 15 and 16 March 2025",
@@ -72,6 +55,7 @@ const Footer = () => {
                     <h4 className="font-bold text-xl lg:text-2xl"> FOSSMeet &apos;25 </h4>
                 </div>
                 <span className="font-normal text-base hidden lg:block"> An event conducted by FOSSCell NITC in collaboration with CSEA </span>
+
             </div>
         </footer>
     )

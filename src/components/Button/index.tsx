@@ -1,5 +1,6 @@
 'use client'
 
+
 import { JSX, MouseEventHandler, ReactNode, useCallback, useMemo } from "react";
 import { motion } from 'framer-motion'
 import { lato } from "@/fonts";
@@ -17,7 +18,6 @@ import { useRouter } from "next/navigation";
  * 
  * 
  * @returns {JSX.Element} - The component to be rendered
- * 
  * @author Diljith P D
  */
 const Button = ({
@@ -50,7 +50,7 @@ const Button = ({
             scale: 0.99,
         },
     }), []);
-
+  
     const buttonInvertedConfig = useMemo(() => ({
         initial: {
             backgroundColor: 'var(--secondary)',
