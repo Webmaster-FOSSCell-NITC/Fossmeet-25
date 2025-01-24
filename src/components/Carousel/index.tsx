@@ -29,7 +29,7 @@ const Carousel = ({
     const [slideCount, setSlideCount] = useState(3);
     const sliderRef = useRef<Slider>(null);
     const settings = {
-        dots: true,
+        dots: false,
         infinite: false,
         speed: 500,
         slidesToShow: maxPerPage,

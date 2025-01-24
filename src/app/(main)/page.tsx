@@ -12,11 +12,26 @@ import { getSpeakers } from "@/lib/speakers";
 import Button from "@/components/Button";
 import { redirect } from "next/navigation";
 import Dialog from "@/components/Dialog";
+import { useMemo } from "react";
 
 export default async function Home() {
   const workshops = await getWorkshops();
   const speakers = await getSpeakers();
 
+  const sponsors = [
+    {
+      name: "nilenso",
+      image: "/landing-page/nilenso.svg",
+    },
+    {
+      name: "foss-united",
+      image: "/landing-page/fossunited.svg",
+    },
+    {
+      name: "saeloun",
+      image: "/landing-page/saeloun.svg",
+    },
+  ];
 
   return (
     <Container>
@@ -40,10 +55,7 @@ export default async function Home() {
                 <img src="/landing-page/map-marker.svg" alt="location" height={25} width={25} />
                 <span> NIT CALICUT </span>
               </div>
-              <a href="#" className="flex items-center justify-center bg-secondary text-white px-[4px] py-[7px] ps-[24px]">
-                <span> Register </span>
-                <img src="/icons/arrow.svg" alt="arrow" height={25} width={25} />
-              </a>
+              <Button inverted={true}> Register </Button>
             </div>
           </div>
         </div>
@@ -59,7 +71,7 @@ export default async function Home() {
       <Marquee />
       <Section className="flex flex-col-reverse lg:flex-row items-center justify-center min-h-[75dvh] h-full w-full" id="about-us" borderTop>
         <Dialog />
-        <div className="w-full lg:w-2/3 ps-0 lg:ps-[64px] py-[87px] flex flex-col items-start justify-between min-h-[75dvh] h-full">
+        <div className="w-full lg:w-2/3 ps-0 lg:ps-[64px] py-[87px] flex flex-col gap-4 items-start justify-between min-h-[75dvh] h-full">
           <div className="flex flex-col gap-4">
             <span className={`${lato.className} font-normal text-2xl lg:text-5xl`}> About </span>
             <span className={`${styles.outlinedText} text-primary text-2xl lg:text-5xl`}> FOSSMeet </span>
@@ -72,8 +84,8 @@ export default async function Home() {
           <div className="!leading-[24px] lg:!leading-[44px] text-sm lg:text-2xl font-normal flex flex-col gap-4">
             <br />
 
-            <span> Check out our past meet </span>
-            <Button className="text-base lg:text-2xl" href='/gallery'> Gallery </Button>
+            {/* <span> Check out our past meet </span>
+            <Button className="text-base lg:text-2xl" href='/gallery'> Gallery </Button> */}
           </div>
         </div>
       </Section>
@@ -134,12 +146,13 @@ export default async function Home() {
 
 
         <div className="w-2/3 h-full flex items-center justify-center gap-16 flex-wrap">
-          <div className="w-[250px] h-[150px] flex items-center justify-center">
-            <Image src="/landing-page/fossunited.svg" alt="foss-united" className="w-full h-full object-fit-cover" width={250} height={150} />
-          </div>
-          <div className="w-[250px] h-[150px] flex items-center justify-center">
-            <Image src="/landing-page/nilenso.svg" alt="nilenso" className="w-full h-full object-fit-cover" width={250} height={150} />
-          </div>
+          {
+            sponsors.map((sponsor, index) => (
+              <div key={index} className="w-[250px] h-[150px] flex items-center justify-center">
+                <Image src={sponsor.image} alt={sponsor.name} className="w-full h-full object-fit-cover" width={250} height={150} />
+              </div>
+            ))
+          }
         </div>
       </Section>
     </Container>

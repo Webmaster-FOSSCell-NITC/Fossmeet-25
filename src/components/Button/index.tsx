@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
  * @param {string} [props.href] - Route link
  * @param {string} [props.className] - className extension for customization (defaults to none)
  * @param {boolean} [props.disabled] - set to true if button is to be disabled (defaults to false)
+ * @param {boolean} [props.invert] - set colour scheme to be inverted
  * 
  * 
  * @returns {JSX.Element} - The component to be rendered
@@ -24,11 +25,12 @@ const Button = ({
     href = undefined,
     className = "",
     disabled = false,
+    inverted = false,
 }: ButtonProps): JSX.Element => {
 
     const router = useRouter();
 
-    const buttonAnimationConfig = useMemo(() => ({
+    const buttonDefaultConfig = useMemo(() => ({
         initial: {
             backgroundColor: 'var(--primary)',
             color: 'var(--secondary)',
@@ -48,6 +50,32 @@ const Button = ({
             scale: 0.99,
         },
     }), []);
+
+    const buttonInvertedConfig = useMemo(() => ({
+        initial: {
+            backgroundColor: 'var(--secondary)',
+            color: 'var(--white)',
+            borderColor: 'var(--secondary)',
+            scale: 1,
+        },
+        whileHover: {
+            backgroundColor: 'var(--white)',
+            color: 'var(--secondary)',
+            borderColor: 'var(--secondary)',
+            scale: 1.01,
+        },
+        whileTap: {
+            backgroundColor: 'var(--primary)',
+            color: 'var(--white)',
+            borderColor: 'var(--primary)',
+            scale: 0.99,
+        },
+    }), []);
+
+
+    const buttonAnimationConfig = useMemo(() =>
+        inverted ? buttonInvertedConfig : buttonDefaultConfig,
+        [inverted, buttonDefaultConfig, buttonInvertedConfig]);
 
 
 
@@ -77,4 +105,5 @@ export interface ButtonProps {
     href?: string,
     className?: string,
     disabled?: boolean,
+    inverted?: boolean,
 }
