@@ -22,7 +22,6 @@ export default function RootLayout({
         className={`${gloriaHallelujah.className} antialiased`}
       >
         {children}
-        <Footer />
       </body>
     </html>
   );
