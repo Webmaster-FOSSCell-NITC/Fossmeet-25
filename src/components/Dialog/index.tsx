@@ -16,9 +16,9 @@ const Dialog = () => {
 
 
     return (
-        <div className="w-full lg:w-1/3 border border-0 lg:border-e-[1px] border-e-secondary/25 min-h-[75dvh] h-full relative">
+        <div className="w-full lg:w-1/3 border border-0 lg:border-e-[1px] border-e-secondary/25 lg:min-h-[75dvh] h-full relative">
             <motion.div className="w-full h-full" layoutId={isOpen ? 'background-container' : 'foreground-container'}>
-                <button onClick={toggleDialog}>
+                <button onClick={toggleDialog} className="hidden lg:block">
                     <span className="text-base font-normal p-2 w-[25px] h-[25px] absolute top-10 left-10 rounded-full border border-px border-secondary/25 flex items-center justify-center"> i </span>
                 </button>
                 <motion.img layoutId={isOpen ? 'background' : 'foreground'} src="/landing-page/about-us-image.png" alt="about-us-image" className="w-full h-full object-fit-cover bg-white" />

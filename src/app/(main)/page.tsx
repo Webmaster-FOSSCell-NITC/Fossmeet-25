@@ -72,7 +72,7 @@ export default async function Home() {
       <Marquee />
       <Section className="flex flex-col-reverse lg:flex-row items-center justify-center min-h-[75dvh] h-full w-full" id="about-us" borderTop>
         <Dialog />
-        <div className="w-full lg:w-2/3 ps-0 lg:ps-[64px] py-[87px] flex flex-col gap-4 items-start justify-between min-h-[75dvh] h-full">
+        <div className="w-full lg:w-2/3 ps-0 lg:ps-[64px] pt-[24px] lg:py-[87px] flex flex-col gap-4 items-start justify-between lg:min-h-[75dvh] h-full">
           <div className="flex flex-col gap-4">
             <span className={`${lato.className} font-normal text-2xl lg:text-5xl`}> About </span>
             <span className={`${styles.outlinedText} text-primary text-2xl lg:text-5xl`}> FOSSMeet </span>
