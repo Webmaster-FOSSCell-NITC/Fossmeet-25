@@ -60,7 +60,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 -right-4 md:-right-16 h-fit w-fit">
+        <div className="absolute bottom-0 -right-4 md:-right-16 h-fit w-fit z-[-2]">
           <Image
             src="/landing-page/hero-imagae.png"
             alt="landing-page-image"
