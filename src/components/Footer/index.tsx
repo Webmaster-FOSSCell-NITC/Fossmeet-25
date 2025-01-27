@@ -33,7 +33,7 @@ const Footer = () => {
     return (
         <footer className="h-full relative overflow-hidden">
             <div className="bg-secondary text-white px-[16px] lg:p-[40px] flex items-center gap-[40px] justify-start">
-                <div className="h-[550px] w-[550px] absolute lg:static opacity-[10%] lg:opacity-100 left-[5rem] bottom-[-2rem]">
+                <div className="h-[550px] w-[550px] hidden lg:block">
                     <Image src="/footer/foss-ascii.png" alt="ascii-art" className="w-full h-full object-fit-cover" draggable={false} width={500} height={500} />
                 </div>
                 <div className="flex m-0 lg:ms-24 flex-col justify-center items-start">

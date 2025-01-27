@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
  * global button component for a consistent design across pages
  * @param {ButtonProps} props - props to be passed to the component
  * @param {ReactNode} [props.children] - content to be displayed within the button
+ * @param {MouseEventHandler<HTMLButtonElement>} [props.onClick] - on Click action on the button
  * @param {string} [props.href] - Route link
  * @param {string} [props.className] - className extension for customization (defaults to none)
  * @param {boolean} [props.disabled] - set to true if button is to be disabled (defaults to false)
@@ -23,6 +24,7 @@ import { useRouter } from "next/navigation";
 const Button = ({
     children,
     href = undefined,
+    onClick = undefined,
     className = "",
     disabled = false,
     inverted = false,
@@ -50,7 +52,7 @@ const Button = ({
             scale: 0.99,
         },
     }), []);
-  
+
     const buttonInvertedConfig = useMemo(() => ({
         initial: {
             backgroundColor: 'var(--secondary)',
@@ -78,10 +80,18 @@ const Button = ({
         [inverted, buttonDefaultConfig, buttonInvertedConfig]);
 
 
+    const onClickHandler = useCallback((e: MouseEvent<HTMLButtonElement>) => {
+        if (onClick)
+            return onClick(e);
+        else if (href)
+            return router.push(href);
+        else
+            return undefined;
+    }, [onClick, href, router]);
 
     return (
         <motion.button
-            onClick={href ? () => router.push(href) : undefined}
+            onClick={onClickHandler}
             className={`relative flex items-center justify-center py-[7px] px-[48px] border border-px disabled:opacity-50 bg-primary disabled:cursor-not-allowed ${lato.className} ${className}`}
             disabled={disabled}
             {...(!disabled && buttonAnimationConfig)}
@@ -103,6 +113,7 @@ export default Button;
 export interface ButtonProps {
     children: ReactNode,
     href?: string,
+    onClick?: MouseEventHandler<HTMLButtonElement>,
     className?: string,
     disabled?: boolean,
     inverted?: boolean,

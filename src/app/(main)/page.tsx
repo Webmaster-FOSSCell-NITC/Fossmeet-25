@@ -13,6 +13,7 @@ import Button from "@/components/Button";
 import { redirect } from "next/navigation";
 import Dialog from "@/components/Dialog";
 import { useMemo } from "react";
+import TownScriptWidget from "@/components/TownScriptWidget";
 
 export default async function Home() {
   const workshops = await getWorkshops();
@@ -55,7 +56,7 @@ export default async function Home() {
                 <img src="/landing-page/map-marker.svg" alt="location" height={25} width={25} />
                 <span> NIT CALICUT </span>
               </div>
-              <Button inverted={true}> Register </Button>
+              <TownScriptWidget />
             </div>
           </div>
         </div>
