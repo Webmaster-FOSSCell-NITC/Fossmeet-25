@@ -31,7 +31,7 @@ const TownScriptWidget = () => {
 
     return (
         <div>
-            <Button onClick={handlePopup} inverted>
+            <Button onClick={handlePopup} inverted className="w-full">
                 Register
             </Button>
             <noscript id="tsNoJsMsg">Javascript on your browser is not enabled.</noscript>
