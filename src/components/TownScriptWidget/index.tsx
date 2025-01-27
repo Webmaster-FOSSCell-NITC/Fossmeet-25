@@ -20,7 +20,6 @@ const TownScriptWidget = () => {
     }, []);
 
     const handlePopup = () => {
-        console.log("register popup");
         if ((window as any).popup) {
             (window as any).popup(townscriptId);
         }
