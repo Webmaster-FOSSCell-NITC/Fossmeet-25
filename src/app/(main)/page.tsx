@@ -4,20 +4,20 @@ import { lato } from "@/fonts";
 import styles from './styles.module.css'
 import Marquee from "@/components/Marquee";
 import Image from 'next/image'
-import WorkshopCard, { WorkshopCardProps } from "@/components/Cards/WorkshopCard";
-import Carousel from "@/components/Carousel";
-import SpeakerCard, { SpeakerCardProps } from "@/components/Cards/SpeakerCard";
-import { getWorkshops } from "@/lib/workshops";
-import { getSpeakers } from "@/lib/speakers";
-import Button from "@/components/Button";
-import { redirect } from "next/navigation";
+// import { getWorkshops } from "@/lib/workshops";
+// import { getSpeakers } from "@/lib/speakers";
 import Dialog from "@/components/Dialog";
-import { useMemo } from "react";
 import TownScriptWidget from "@/components/TownScriptWidget";
+// import WorkshopCard, { WorkshopCardProps } from "@/components/Cards/WorkshopCard";
+// import SpeakerCard, { SpeakerCardProps } from "@/components/Cards/SpeakerCard";
+// import Carousel from "@/components/Carousel";
+// import Button from "@/components/Button";
+
+export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-  const workshops = await getWorkshops();
-  const speakers = await getSpeakers();
+  // const workshops = await getWorkshops();
+  // const speakers = await getSpeakers();
 
   const sponsors = [
     {
@@ -25,12 +25,12 @@ export default async function Home() {
       image: "/landing-page/nilenso.svg",
     },
     {
-      name: "foss-united",
-      image: "/landing-page/fossunited.svg",
-    },
-    {
       name: "saeloun",
       image: "/landing-page/saeloun.svg",
+    },
+    {
+      name: "foss-united",
+      image: "/landing-page/fossunited.svg",
     },
   ];
 

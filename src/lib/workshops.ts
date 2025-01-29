@@ -1,10 +1,10 @@
-import { WorkshopCardProps } from '@/components/Cards/WorkshopCard'
 import { revalidateTime } from '../../sanity/env'
 import { client } from '../../sanity/lib/client'
 import { Workshop } from '../../sanity/schemas/workshop'
 import { urlForImage } from '../../sanity/lib/image'
+import { WorkshopDetails } from '@/types'
 
-export const getWorkshops = async (): Promise<WorkshopCardProps[]> => {
+export const getWorkshops = async (): Promise<WorkshopDetails[]> => {
     const workshops = await client.fetch<Workshop[]>(
         `*[_type=="workshop"]`,
         {},
@@ -15,7 +15,7 @@ export const getWorkshops = async (): Promise<WorkshopCardProps[]> => {
         }
     )
 
-    const output: WorkshopCardProps[] = workshops.map(data => ({
+    const output: WorkshopDetails[] = workshops.map(data => ({
         title: data.name,
         description: data.description,
         duration: data.duration,

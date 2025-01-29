@@ -63,9 +63,9 @@ const Marquee = (): JSX.Element => {
                         <Dot fill="white" outline="white" />
                         <span className={`${zenTokyoZoo.className} text-nowrap font-normal text-2xl lg:text-[64px] leading-[64px]`}> REDIS </span>
                         <Dot fill="secondary" outline="white" />
-                        <span className={`${zenTokyoZoo.className} text-nowrap font-normal text-2xl lg:text-[64px] leading-[64px]`}> APACHE </span>
+                        <span className={`${alexandria.className} text-nowrap font-normal text-2xl lg:text-[64px] leading-[64px]`}> APACHE </span>
                         <Dot fill="white" outline="white" />
-                        <span className={`${alexandria.className} text-nowrap font-normal text-3xl lg:text-7xl leading-[64px]`}> FOSSMEET&apos;25 </span>
+                        <span className={`${zenTokyoZoo.className} text-nowrap font-normal text-3xl lg:text-7xl leading-[64px]`}> FOSSMEET&apos;25 </span>
                     </motion.div>
                 </div>
             </div>

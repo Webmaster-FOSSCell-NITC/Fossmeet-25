@@ -10,6 +10,10 @@ const Dialog = () => {
         setIsOpen(prev => !prev);
     }, []);
 
+    const title = useMemo(() =>
+        "3 guys walk into a bar..."
+        , []);
+
     const text = useMemo(() =>
         "Linus, Richard and Dennis walk into a bar, but it's a Microsoft bar, so it's closed. Leaving our three characters with nothing to do but have fun together and develop their own network of open source bars and give out free beers."
         , []);
@@ -53,7 +57,12 @@ const Dialog = () => {
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
                                 >
-                                    {text}
+                                    <h4 className="text-3xl font-medium mb-10">
+                                        {title}
+                                    </h4>
+                                    <span>
+                                        {text}
+                                    </span>
                                 </motion.div>
                             </motion.div>
                         </motion.div>

@@ -4,30 +4,61 @@ import Link from "next/link";
 import { useMemo } from "react";
 
 type DataType = {
-    Host?: string;
-    Date?: string,
-    Status?: string;
-    Mobile?: string;
-    'E-mail'?: string;
-    Instagram?: string;
-    Telegram?: string;
-    Twitter?: string;
-    Speakers?: string;
-    Workshops?: string;
-    FAQ?: string;
-    Register?: string;
-    'FOSSMeet-24'?: string;
+    name: string,
+    content: string,
+    link?: string,
 };
 
 const Footer = () => {
 
-    const data: DataType = useMemo((): DataType => ({
-        'Host': "National Institute of Technology Calicut",
-        'Date': "14, 15 and 16 March 2025",
-        'E-mail': "info@fossmeet.net",
-        'Instagram': "@fosscell_nitc",
-        'Telegram': "t.me/foss_meet",
-    }), []);
+    /*
+
+Host
+:
+National Institute of Technology Calicut
+
+Date
+:
+14, 15 and 16 March 2025
+
+E-mail
+:
+info@fossmeet.net
+
+Instagram
+:
+@fosscell_nitc
+
+Telegram
+:
+t.me/foss_meet
+    */
+
+    const data = useMemo((): DataType[] => [
+        {
+            name: "Host",
+            content: "National Institute of Technology, Calicut",
+        },
+        {
+            name: "Date",
+            content: "14, 15 and 16th March, 2025",
+        },
+        {
+            name: "E-Mail",
+            content: "info@fossmeet.net",
+            link: "mailto:info@fossmeet.net",
+        },
+        {
+            name: "Instagram",
+            content: "@fosscell_nitc",
+            link: "https://www.instagram.com/fosscellnitc?igsh=Z2xjdGo3bWk3Y2Nu"
+        },
+        {
+            name: "Telegram",
+            content: "t.me/foss_meet",
+            link: "https://t.me/foss_meet",
+        }
+    ], []);
 
 
     return (
@@ -39,9 +70,22 @@ const Footer = () => {
                 <div className="flex m-0 lg:ms-24 flex-col justify-center items-start">
                     <span className={`text-primary ${cantarell.className} text-2xl font-bold border border-0 border-b-[2px] pb-[16px] border-dashed mb-[32px]`}> contact<span className="text-white">@</span>FOSSMeet-25 </span>
                     {
-                        Object.keys(data).map((key, index) => (
+                        // Object.keys(data).map((key, index) => (
+                        //     <span key={index} className={`flex gap-1 text-xl lg:text-2xl font-semibold ${inconsolate.className}`}>
+                        //         <h4 className="text-primary"> {key} </h4 > : <p className="text-white"> {data[key as (keyof DataType)]} </p>
+                        //     </span>
+                        // ))
+                        data.map((value, index) => (
                             <span key={index} className={`flex gap-1 text-xl lg:text-2xl font-semibold ${inconsolate.className}`}>
-                                <h4 className="text-primary"> {key} </h4 > : <p className="text-white"> {data[key as (keyof DataType)]} </p>
+                                <h4 className="text-primary"> {value.name} </h4>
+                                <span> : </span>
+                                {
+                                    value.link ? (
+                                        <Link className="text-white hover:underline underline-offset-4" href={value.link} target="_blank"> {value.content} </Link>
+                                    ) : (
+                                        <p className="text-white"> {value.content} </p>
+                                    )
+                                }
                             </span>
                         ))
                     }
