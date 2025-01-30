@@ -32,12 +32,12 @@ const SpeakerCard = ({
                 />
             </div>
             {orientation === 'right' ? (
-                <div className="absolute top-[25px] right-[35px] text-center">
+                <div className="absolute top-[10px] right-[35px] text-center">
                     <h2 className="text-secondary text-[20px] font-bold"> {name} </h2>
                     <p className="text-white text-[14px] mt-1"> {talkTitle} </p>
                 </div>
             ) : (
-                <div className="absolute top-[25px] left-[35px] text-center">
+                <div className="absolute top-[10px] left-[35px] text-center">
                     <h2 className="text-secondary text-[20px] font-bold"> {name} </h2>
                     <p className="text-white text-[14px] mt-1"> {talkTitle} </p>
                 </div>

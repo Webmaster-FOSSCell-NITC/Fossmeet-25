@@ -5,6 +5,7 @@ import { urlForImage } from "../../sanity/lib/image";
 import { SpeakerDetails } from "@/types";
 
 
+
 export const getSpeakers = async (): Promise<SpeakerDetails[]> => {
     const speakers = await client.fetch<Speaker[]>(
         `*[_type=="speaker"]`,
