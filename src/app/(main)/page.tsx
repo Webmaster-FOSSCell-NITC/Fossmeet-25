@@ -8,6 +8,7 @@ import Image from 'next/image'
 // import { getSpeakers } from "@/lib/speakers";
 import Dialog from "@/components/Dialog";
 import TownScriptWidget from "@/components/TownScriptWidget";
+import Link from "next/link";
 // import WorkshopCard, { WorkshopCardProps } from "@/components/Cards/WorkshopCard";
 // import SpeakerCard, { SpeakerCardProps } from "@/components/Cards/SpeakerCard";
 // import Carousel from "@/components/Carousel";
@@ -23,14 +24,17 @@ export default async function Home() {
     {
       name: "nilenso",
       image: "/landing-page/nilenso.svg",
+      link: "https://nilenso.com/",
     },
     {
       name: "saeloun",
       image: "/landing-page/saeloun.svg",
+      link: "https://www.saeloun.com/",
     },
     {
       name: "foss-united",
       image: "/landing-page/fossunited.svg",
+      link: "https://fossunited.org/",
     },
   ];
 
@@ -149,9 +153,9 @@ export default async function Home() {
         <div className="w-2/3 h-full flex items-center justify-center gap-16 flex-wrap">
           {
             sponsors.map((sponsor, index) => (
-              <div key={index} className="w-[250px] h-[150px] flex items-center justify-center">
+              <Link key={index} className="w-[250px] h-[150px] flex items-center justify-center cursor-pointer hover:scale-[1.05] active:scale-[0.99] transition-transform duration-300" href={sponsor.link}>
                 <Image src={sponsor.image} alt={sponsor.name} className="w-full h-full object-fit-cover" width={250} height={150} />
-              </div>
+              </Link>
             ))
           }
         </div>
