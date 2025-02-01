@@ -34,21 +34,33 @@ const Page = () => {
                 {speakers.map((speaker, index) => (
                     <div
                         key={index}
-                        className="m-4 cursor-pointer hover:scale-105 transition-transform"
+                        className="m-4"
                         onClick={() => setSelectedSpeaker(speaker)}
                     >
-                        <SpeakerCard
-                            name={speaker.name}
-                            talkTitle={speaker.talkTitle.length > 25 ? (speaker.talkTitle.slice(0, 25) + "...") : (speaker.talkTitle)}
-                            speakerImageUrl={speaker.speakerImageUrl}
-                            // orientation={index % 2 === 0 ? "left" : "right"}
-                            orientation="left"
-                        />
+                        {
+                            (selectedSpeaker == speaker) ? (
+                                <Modal
+                                    speaker={selectedSpeaker}
+                                    onClose={(e) => {
+                                        e.stopPropagation();
+                                        setSelectedSpeaker(null);
+                                    }}
+                                    orientation="right"
+                                />
+                            ) : (
+                                <SpeakerCard
+                                    name={speaker.name}
+                                    talkTitle={speaker.talkTitle.length > 25 ? (speaker.talkTitle.slice(0, 25) + "...") : (speaker.talkTitle)}
+                                    speakerImageUrl={speaker.speakerImageUrl}
+                                    // orientation={index % 2 === 0 ? "left" : "right"}
+                                    orientation="left"
+                                />
+                            )
+                        }
                     </div>
                 ))}
             </Section>
 
-            {selectedSpeaker && <Modal speaker={selectedSpeaker} onClose={() => setSelectedSpeaker(null)} />}
         </Container>
     );
 };
