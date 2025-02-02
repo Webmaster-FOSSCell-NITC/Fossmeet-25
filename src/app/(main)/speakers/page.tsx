@@ -41,19 +41,15 @@ const Page = () => {
                             (selectedSpeaker == speaker) ? (
                                 <Modal
                                     speaker={selectedSpeaker}
-                                    onClose={(e) => {
-                                        e.stopPropagation();
-                                        setSelectedSpeaker(null);
-                                    }}
-                                    orientation="right"
+                                    onClose={() => setSelectedSpeaker(null)}
+                                    orientation={index % 5 >= 2 ? 'left' : 'right'}
                                 />
                             ) : (
                                 <SpeakerCard
                                     name={speaker.name}
                                     talkTitle={speaker.talkTitle.length > 25 ? (speaker.talkTitle.slice(0, 25) + "...") : (speaker.talkTitle)}
                                     speakerImageUrl={speaker.speakerImageUrl}
-                                    // orientation={index % 2 === 0 ? "left" : "right"}
-                                    orientation="left"
+                                    orientation={index % 2 === 0 ? "left" : "right"}
                                 />
                             )
                         }
