@@ -37,7 +37,7 @@ const Media = () => {
                 FOSSMeet'24 Gallery
             </h1> */}
 
-            <h1 className={`${styles.outlinedText} text-primary text-5xl sm:text-6xl lg:text-8xl`}> FOSSMeet'24 Gallery </h1>
+            <h1 className={`${styles.outlinedText} text-primary text-5xl sm:text-6xl lg:text-8xl`}> FOSSMeet&apos;24 Gallery </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-20">
                 {
                     galleryImages.map((img, index) => (
