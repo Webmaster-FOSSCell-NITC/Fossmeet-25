@@ -34,7 +34,7 @@ const Media = () => {
     <Container>
         <Section className="w-full h-full min-h-screen pb-20 pt-48  ">
             {/* <h1 className={`${lato.className} text-4xl lg:text-8xl text-bold`}>
-                FOSSMeet'24 Gallery
+                FOSSMeet&apos;24 Gallery
             </h1> */}
 
             <h1 className={`${styles.outlinedText} text-primary text-5xl sm:text-6xl lg:text-8xl`}> FOSSMeet&apos;24 Gallery </h1>
