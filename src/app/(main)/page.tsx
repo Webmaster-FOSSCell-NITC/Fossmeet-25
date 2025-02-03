@@ -52,7 +52,7 @@ export default async function Home() {
           <div className="flex flex-col gap-8 mt-14 lg:mt-24">
             <span className="text-base lg:text-2xl font-normal"> March 14th - 16th 2025 </span>
             <div className={`${lato.className} flex flex-col lg:flex-row`}>
-              <div className="flex items-center justify-center bg-primary ps-0 px-[36px] py-[7px] gap-0 lg:gap-[17px]">
+              <div className="flex items-center justify-center bg-primary ps-0 px-[20px] lg:px-[36px] py-[7px] gap-0">
                 <img src="/landing-page/map-marker.svg" alt="location" height={25} width={25} />
                 <span> NIT CALICUT </span>
               </div>
