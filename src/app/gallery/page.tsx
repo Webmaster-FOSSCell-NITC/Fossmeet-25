@@ -65,7 +65,7 @@ const Media = () => {
         <motion.div className="p-4 flex gap-4 items-center justify-center flex-col" style={{ y: invertedY }}>
           {
             images.left.map((image, index) => (
-              <Image src={image} alt="image" className="w-full" height={200} width={200} key={index} />
+              <Image src={image} alt="image" className="w-full" height={1080} width={1620} key={index} />
             ))
           }
         </motion.div>
@@ -73,14 +73,14 @@ const Media = () => {
           <h1 className={`text-4xl ${lato.className} font-bold py-4`}> FOSSMeet&apos;24 Gallery </h1>
           {
             images.middle.map((image, index) => (
-              <Image src={image} alt="image" className="w-full" height={200} width={200} key={index} />
+              <Image src={image} alt="image" className="w-full" height={1080} width={1620} key={index} />
             ))
           }
         </motion.div>
         <motion.div className="p-4 flex gap-4 items-center justify-center flex-col" style={{ y: invertedY }}>
           {
             images.right.map((image, index) => (
-              <Image src={image} alt="image" className="w-full" height={200} width={200} key={index} />
+              <Image src={image} alt="image" className="w-full" height={1080} width={1620} key={index} />
             ))
           }
         </motion.div>
