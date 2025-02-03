@@ -40,7 +40,7 @@ export default async function Home() {
 
   return (
     <Container>
-      <Section className="flex items-center justify-start h-screen w-screen relative" id="hero">
+      <Section className="flex items-center justify-start h-full lg:h-screen w-screen relative" id="hero">
         <div className="h-full w-full flex flex-col items-start justify-center py-24">
           <div className="flex flex-col gap-8">
             <h1 className={`${lato.className} font-medium text-center lg:text-left text-5xl lg:text-8xl`}> FOSSMeet&apos;25 </h1>
