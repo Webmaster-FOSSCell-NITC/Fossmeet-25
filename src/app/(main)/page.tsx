@@ -90,7 +90,7 @@ export default function Home() {
             <br />
 
             <span> Check out our past meet </span>
-            <Button className="text-base lg:text-2xl" href='/gallery'> FOSSMeet'24 Gallery </Button>
+            <Button className="text-base lg:text-2xl" href='/gallery'> FOSSMeet&apos;24 Gallery </Button>
           </div>
         </div>
       </Section>
