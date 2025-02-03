@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { client } from "../../../../sanity/lib/client";
 import Container from "@/components/Container";
 import Section from "@/components/Section";
+import styles from '../styles.module.css'
 import { lato } from "@/fonts";
 import { Image } from "sanity";
 import { urlForImage } from "../../../../sanity/lib/image";
@@ -32,9 +33,11 @@ const Media = () => {
   return (
     <Container>
         <Section className="w-full h-full min-h-screen pb-20 pt-48  ">
-            <h1 className={`${lato.className} text-4xl lg:text-8xl text-bold`}>
+            {/* <h1 className={`${lato.className} text-4xl lg:text-8xl text-bold`}>
                 FOSSMeet'24 Gallery
-            </h1>
+            </h1> */}
+
+            <h1 className={`${styles.outlinedText} text-primary text-4xl lg:text-8xl`}> FOSSMeet'24 Gallery </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-20">
                 {
                     galleryImages.map((img, index) => (
