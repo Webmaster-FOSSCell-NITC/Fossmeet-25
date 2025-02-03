@@ -1,3 +1,5 @@
+'use client'
+
 import Container from "@/components/Container";
 import Section from "@/components/Section";
 import { lato } from "@/fonts";
@@ -9,17 +11,15 @@ import Image from 'next/image'
 import Dialog from "@/components/Dialog";
 import TownScriptWidget from "@/components/TownScriptWidget";
 import Link from "next/link";
+import Button from "@/components/Button";
 // import WorkshopCard, { WorkshopCardProps } from "@/components/Cards/WorkshopCard";
 // import SpeakerCard, { SpeakerCardProps } from "@/components/Cards/SpeakerCard";
 // import Carousel from "@/components/Carousel";
 // import Button from "@/components/Button";
 
-export const dynamic = 'force-dynamic';
-
-export default async function Home() {
+export default function Home() {
   // const workshops = await getWorkshops();
   // const speakers = await getSpeakers();
-
   const sponsors = [
     {
       name: "nilenso",
@@ -89,8 +89,8 @@ export default async function Home() {
           <div className="!leading-[24px] lg:!leading-[44px] text-sm lg:text-2xl font-normal flex flex-col gap-4">
             <br />
 
-            {/* <span> Check out our past meet </span>
-            <Button className="text-base lg:text-2xl" href='/gallery'> Gallery </Button> */}
+            <span> Check out our past meet </span>
+            <Button className="text-base lg:text-2xl" href='/gallery'> Gallery </Button>
           </div>
         </div>
       </Section>

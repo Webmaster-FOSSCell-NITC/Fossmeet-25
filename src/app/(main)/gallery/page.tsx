@@ -18,7 +18,6 @@ const Media = () => {
       setLoading(true);
       try {
         const images = await client.fetch(`*[_type=="gallery_images"]`);
-        console.log(images);
         setGalleryImages(images);
       } catch (error) {
         console.error(error);

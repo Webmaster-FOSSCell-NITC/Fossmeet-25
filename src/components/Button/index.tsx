@@ -4,15 +4,13 @@
 import { JSX, MouseEventHandler, ReactNode, useCallback, useMemo } from "react";
 import { motion } from 'framer-motion'
 import { lato } from "@/fonts";
-import { MouseEvent } from "react";
-import { useRouter } from "next/navigation";
 
 /**
  * global button component for a consistent design across pages
  * @param {ButtonProps} props - props to be passed to the component
  * @param {ReactNode} [props.children] - content to be displayed within the button
  * @param {MouseEventHandler<HTMLButtonElement>} [props.onClick] - on Click action on the button
- * @param {string} [props.href] - Route link
+ * @param {string} [props.href] - to route to a particular page
  * @param {string} [props.className] - className extension for customization (defaults to none)
  * @param {boolean} [props.disabled] - set to true if button is to be disabled (defaults to false)
  * @param {boolean} [props.invert] - set colour scheme to be inverted
@@ -23,15 +21,12 @@ import { useRouter } from "next/navigation";
  */
 const Button = ({
     children,
-    href = undefined,
     onClick = undefined,
+    href=undefined,
     className = "",
     disabled = false,
     inverted = false,
 }: ButtonProps): JSX.Element => {
-
-    const router = useRouter();
-
     const buttonDefaultConfig = useMemo(() => ({
         initial: {
             backgroundColor: 'var(--primary)',
@@ -79,31 +74,23 @@ const Button = ({
         inverted ? buttonInvertedConfig : buttonDefaultConfig,
         [inverted, buttonDefaultConfig, buttonInvertedConfig]);
 
-
-    const onClickHandler = useCallback((e: MouseEvent<HTMLButtonElement>) => {
-        if (onClick)
-            return onClick(e);
-        else if (href)
-            return router.push(href);
-        else
-            return undefined;
-    }, [onClick, href, router]);
-
     return (
         <motion.button
-            onClick={onClickHandler}
+            onClick={onClick}
             className={`relative flex items-center justify-center py-[7px] px-[48px] border border-px disabled:opacity-50 bg-primary disabled:cursor-not-allowed ${lato.className} ${className}`}
             disabled={disabled}
             {...(!disabled && buttonAnimationConfig)}
         >
-            <div>
-                {children}
-            </div>
-            <span className="absolute h-full right-[12px] top-[50%] translate-y-[-50%] flex items-center justify-center ">
-                <span className="text-base">
-                    &rarr;
+            <a href={href}>
+                <div>
+                    {children}
+                </div>
+                <span className="absolute h-full right-[12px] top-[50%] translate-y-[-50%] flex items-center justify-center ">
+                    <span className="text-base">
+                        &rarr;
+                    </span>
                 </span>
-            </span>
+            </a>
         </motion.button >
     )
 }
@@ -112,8 +99,8 @@ export default Button;
 
 export interface ButtonProps {
     children: ReactNode,
-    href?: string,
     onClick?: MouseEventHandler<HTMLButtonElement>,
+    href?: string,
     className?: string,
     disabled?: boolean,
     inverted?: boolean,
