@@ -54,7 +54,7 @@ const Media = () => {
     target: containerRef,
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-85.67%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-91.67%"]);
   const invertedY = useTransform(scrollYProgress, [0, 1], ['-100%', '0.1%'])
 
   return (
