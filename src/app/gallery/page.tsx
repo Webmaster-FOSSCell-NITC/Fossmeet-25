@@ -53,7 +53,7 @@ const Media = () => {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
-  const invertedY = useTransform(scrollYProgress, [0, 1], ['-90%', '80%'])
+  const invertedY = useTransform(scrollYProgress, [0, 1], ['-80%', '20%'])
 
   return (
     <div className="h-[2000dvh] w-full relative" ref={containerRef}>
