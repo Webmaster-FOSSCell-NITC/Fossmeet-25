@@ -37,11 +37,11 @@ const Marquee = (): JSX.Element => {
                         <Dot fill="secondary" outline="secondary" />
                         <span className={`${zenTokyoZoo.className} text-nowrap font-normal text-2xl lg:text-[64px] leading-[64px]`}> FOSS </span>
                         <Dot fill="primary" outline="secondary" />
-                        <span className={`${alexandria.className} text-nowrap font-normal text-3xl lg:text-7xl leading-[64px]`}> CONTRIBUTE </span>
+                        <span className={`${alexandria.className} text-nowrap font-normal text-3xl lg:text-7xl leading-[64px]`}> GNU </span>
                         <Dot fill="secondary" outline="secondary" />
                         <span className={`${zenTokyoZoo.className} text-nowrap font-normal text-2xl lg:text-[64px] leading-[64px]`}> OPEN SOURCE </span>
                         <Dot fill="primary" outline="secondary" />
-                        <span className={`${alexandria.className} text-nowrap font-normal text-3xl lg:text-7xl leading-[64px]`}> LINUX </span>
+                        <span className={`${alexandria.className} text-nowrap font-normal text-3xl lg:text-7xl leading-[64px]`}> CONTRIBUTE </span>
                     </motion.div>
                 </div>
             </div>
@@ -61,7 +61,7 @@ const Marquee = (): JSX.Element => {
                         <Dot fill="secondary" outline="white" />
                         <span className={`${alexandria.className} text-nowrap font-normal text-3xl lg:text-7xl leading-[64px]`}> GIT </span>
                         <Dot fill="white" outline="white" />
-                        <span className={`${zenTokyoZoo.className} text-nowrap font-normal text-2xl lg:text-[64px] leading-[64px]`}> REDIS </span>
+                        <span className={`${zenTokyoZoo.className} text-nowrap font-normal text-2xl lg:text-[64px] leading-[64px]`}> GIMP </span>
                         <Dot fill="secondary" outline="white" />
                         <span className={`${alexandria.className} text-nowrap font-normal text-2xl lg:text-[64px] leading-[64px]`}> APACHE </span>
                         <Dot fill="white" outline="white" />

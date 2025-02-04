@@ -98,7 +98,10 @@ t.me/foss_meet
                     <img src="/footer/logo.svg" alt="footer-logo" height={25} width={25} />
                     <h4 className="font-bold text-xl lg:text-2xl"> FOSSMeet &apos;25 </h4>
                 </div>
-                <span className="font-normal text-base hidden lg:block"> An event conducted by FOSSCell NITC in collaboration with CSEA </span>
+                <span className="font-normal text-base hidden lg:block">
+  An event conducted by <a href="https://www.fosscell.org" target="_blank" rel="noopener noreferrer" >FOSSCell NITC</a> in collaboration with 
+  <a href="https://www.assoc.cse.nitc.ac.in/" target="_blank" rel="noopener noreferrer" > CSEA</a>
+</span>
 
             </div>
         </footer>
