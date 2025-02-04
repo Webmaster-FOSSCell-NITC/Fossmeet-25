@@ -53,16 +53,17 @@ const Media = () => {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
-  const invertedY = useTransform(scrollYProgress, [0, 1], ['-80%', '20%'])
+  const invertedY = useTransform(scrollYProgress, [0, 1], ['-90%', '80%'])
 
   return (
     <div className="h-[2000dvh] w-full relative" ref={containerRef}>
-      <Navbar />
-      <div className="w-full h-screen overflow-hidden sticky top-0 grid grid-cols-3" style={{
+
+      <div className="w-full h-screen overflow-hidden sticky top-0 grid grid-cols-1 md:grid-cols-3" style={{
         scrollBehavior: 'smooth',
       }}
       >
-        <motion.div className="p-4 flex gap-4 items-center justify-center flex-col" style={{ y: invertedY }}>
+
+        <motion.div className="p-4 hidden md:flex gap-4 items-center justify-center flex-col" style={{ y: invertedY }}>
           {
             images.left.map((image, index) => (
               <Image src={image} alt="image" className="w-full" height={1080} width={1620} key={index} />
@@ -77,7 +78,7 @@ const Media = () => {
             ))
           }
         </motion.div>
-        <motion.div className="p-4 flex gap-4 items-center justify-center flex-col" style={{ y: invertedY }}>
+        <motion.div className="p-4 hidden md:flex gap-4 items-center justify-center flex-col" style={{ y: invertedY }}>
           {
             images.right.map((image, index) => (
               <Image src={image} alt="image" className="w-full" height={1080} width={1620} key={index} />
