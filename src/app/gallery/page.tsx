@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { client } from "../../../sanity/lib/client";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { urlForImage } from "../../../sanity/lib/image";
 import Image from 'next/image';
@@ -57,6 +58,7 @@ const Media = () => {
 
   return (
     <div className="h-[2000dvh] w-full relative" ref={containerRef}>
+      <Navbar/>
 
       <div className="w-full h-screen overflow-hidden sticky top-0 grid grid-cols-1 md:grid-cols-3" style={{
         scrollBehavior: 'smooth',
