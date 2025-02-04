@@ -30,9 +30,10 @@ const Media = () => {
         const leftRightImageCount = Math.floor(numImages / 3);
 
         setImages({
-          left: images.map(image => urlForImage(image.image)).slice(0, leftRightImageCount),
-          right: images.map(image => urlForImage(image.image)).slice(leftRightImageCount, 2 * leftRightImageCount),
-          middle: images.map(image => urlForImage(image.image)).slice(2 * leftRightImageCount),
+          left: images.map(image => urlForImage(image.image)),
+          right: [...images.slice(leftRightImageCount).map(image => urlForImage(image.image)), 
+            ...images.slice(0, leftRightImageCount).map(image => urlForImage(image.image))],
+          middle: images.map(image => urlForImage(image.image))
         })
 
       } catch (error) {
@@ -53,8 +54,8 @@ const Media = () => {
     target: containerRef,
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
-  const invertedY = useTransform(scrollYProgress, [0, 1], ['-80%', '20%'])
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-85.67%"]);
+  const invertedY = useTransform(scrollYProgress, [0, 1], ['-100%', '0.1%'])
 
   return (
     <div className="h-[2000dvh] w-full relative" ref={containerRef}>
