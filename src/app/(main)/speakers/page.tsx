@@ -7,10 +7,13 @@ import Modal from "@/components/Modals/SpeakerModal";
 import { getSpeakers } from "@/lib/speakers";
 import styles from "../styles.module.css";
 import { SpeakerDetails } from "@/types";
+import useDisplayWidth from "@/hooks/DisplayWidth";
 
 const Page = () => {
     const [speakers, setSpeakers] = useState<SpeakerDetails[]>([]);
     const [selectedSpeaker, setSelectedSpeaker] = useState<SpeakerDetails | null>(null);
+    const screenWidth = useDisplayWidth();
+    const [numCols, setNumCols] = useState<number>(1);
 
     useEffect(() => {
         const fetchSpeakers = async () => {
@@ -19,6 +22,19 @@ const Page = () => {
         };
         fetchSpeakers();
     }, []);
+
+    useEffect(() => {
+        if (screenWidth > 1440)
+            setNumCols(5);
+        else if (screenWidth > 1080)
+            setNumCols(4);
+        else if (screenWidth > 800)
+            setNumCols(3);
+        else if (screenWidth > 600)
+            setNumCols(2);
+        else
+            setNumCols(1);
+    }, [screenWidth]);
 
     return (
         <Container>
@@ -42,7 +58,7 @@ const Page = () => {
                                 <Modal
                                     speaker={selectedSpeaker}
                                     onClose={() => setSelectedSpeaker(null)}
-                                    orientation={index % 5 >= 2 ? 'left' : 'right'}
+                                    orientation={index % (numCols) >= 2 ? 'left' : 'right'}
                                 />
                             ) : (
                                 <SpeakerCard

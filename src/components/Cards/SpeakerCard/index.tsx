@@ -22,11 +22,12 @@ const SpeakerCard = ({
     return (
         <div
             className={`relative w-[250px] h-[400px] bg-primary shadow-lg flex-col justify-between overflow-hidden`}>
-            <div className="absolute left-0 bottom-[-50px] w-[300px] h-[350px]">
+            <div className="absolute left-0 bottom-[0px] w-[300px] h-[350px] flex flex-col justify-end">
                 <Image
                     src={speakerImageUrl}
-                    alt={`${name} Picture`}
+                    alt={`${name}-picture`}
                     className="object-fit-cover"
+                    priority
                     width={500}
                     height={500}
                 />

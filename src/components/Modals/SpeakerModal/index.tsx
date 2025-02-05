@@ -2,9 +2,10 @@
 import { lato } from "@/fonts";
 import { SpeakerDetails } from "@/types";
 import Image from "next/image";
-import { MouseEventHandler, useCallback, useEffect, useMemo, useState } from "react";
+import { MouseEventHandler, useCallback, useMemo, useState } from "react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { AnimatePresence, motion } from "framer-motion";
+import useDisplayWidth from "@/hooks/DisplayWidth";
 interface ModalProps {
     speaker: SpeakerDetails;
     orientation?: 'left' | 'right',
@@ -17,6 +18,7 @@ const Modal: React.FC<ModalProps> = ({
     orientation = 'right'
 }) => {
     const [showDescription, setShowDescription] = useState(true)
+    const screenWidth = useDisplayWidth();
 
     const closeHandler = useCallback(() => {
         onClose()
@@ -48,7 +50,7 @@ const Modal: React.FC<ModalProps> = ({
                 }}
             />
             <div className={`relative w-[250px] sm:w-[300px] md:w-1/2 lg:w-[250px] h-[250px] sm:h-[300px] md:h-1/2 lg:h-[400px] bg-primary shadow-lg flex-col justify-between overflow-hidden`}>
-                <div className="absolute left-0 bottom-[-50px] w-[200px] lg:w-[300px] h-[234px] lg:h-[350px]">
+                <div className="absolute left-0 bottom-[0] w-[200px] lg:w-[300px] h-[234px] lg:h-[350px] flex flex-col justify-end">
                     <Image
                         src={speaker.speakerImageUrl}
                         alt={`${speaker.name}-picture`}
@@ -64,22 +66,27 @@ const Modal: React.FC<ModalProps> = ({
                     showDescription && (
                         <motion.div
                             className={modelOrientation}
-                            initial={{
-                                clipPath: orientation == 'right'
-                                    ? 'polygon(0 0, 0 0, 0 100%, 0% 100%)'
-                                    : 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)'
-                            }}
-                            animate={{
-                                clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)'
-                            }}
-                            exit={{
-                                clipPath: orientation == 'right'
-                                    ? 'polygon(0 0, 0 0, 0 100%, 0% 100%)'
-                                    : 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)'
-                            }}
-                            transition={{
-                                duration: 0.3
-                            }}
+                            {...((screenWidth >= 1080) && {
+                                initial: {
+                                    clipPath: orientation == 'right'
+                                        ? 'polygon(0 0, 0 0, 0 100%, 0% 100%)'
+                                        : 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
+                                    opacity: 0,
+                                },
+                                animate: {
+                                    clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)',
+                                    opacity: 1,
+                                },
+                                exit: {
+                                    clipPath: orientation == 'right'
+                                        ? 'polygon(0 0, 0 0, 0 100%, 0% 100%)'
+                                        : 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)',
+                                    opacity: 0,
+                                },
+                                transition: {
+                                    duration: 0.3
+                                }
+                            })}
                         >
                             <div className={`w-full flex closeButtonClickHandleritems-center justify-between lg:${orientation == 'right' ? 'flex-row' : 'flex-row-reverse'}`}>
                                 <div>
