@@ -16,12 +16,13 @@ export const getSpeakers = async (): Promise<SpeakerDetails[]> => {
             }
         }
     )
-
+    // console.log(speakers[0])
     const output: SpeakerDetails[] = speakers.map(data => ({
         name: data.name,
         talkTitle: data.talk || "",
         speakerImageUrl: urlForImage(data.image),
         description: data.description,
+        socials: data.socials ? data.socials.map((social) => ({ type: social.type, url: social.link })) : [],
     }))
 
 

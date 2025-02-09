@@ -34,6 +34,21 @@ const Modal: React.FC<ModalProps> = ({
             ? "static lg:absolute top-0 right-0 lg:translate-x-[100%] w-[250px] sm:w-[300px] md:w-1/2 lg:w-[450px] px-[16px] py-[6px] h-[450px] md:h-full bg-white z-[5] overflow-y-scroll"
             : "static lg:absolute top-0 left-0 lg:translate-x-[-100%] w-[250px] sm:w-[300px] md:w-1/2 lg:w-[450px] px-[16px] py-[6px] h-[450px] md:h-full bg-white z-[5] overflow-y-scroll"
         , [orientation]);
+    const getSocialIconSrc = (type: string) => {
+        switch (type.toLowerCase()) {
+            case "linkedin":
+                return "/icons/linkedin.svg";
+            case "github":
+                return "/icons/github.svg";
+            case "twitter":
+                return "/icons/twitter.svg";
+            case "website":
+                return "/icons/website.svg";
+            default:
+                return "/icons/website.svg";
+        }
+    };
+    
 
     return (
         <div className="fixed p-20 sm:p-32 lg:p-0 top-0 top-none left-0 left-none w-full h-full flex flex-col lg:flex-row items-center justify-center lg:relative z-[5]">
@@ -89,9 +104,35 @@ const Modal: React.FC<ModalProps> = ({
                             })}
                         >
                             <div className={`w-full flex closeButtonClickHandleritems-center justify-between lg:${orientation == 'right' ? 'flex-row' : 'flex-row-reverse'}`}>
-                                <div>
-                                    <h1 className={`text-secondary text-xl font-bold ${lato.className}`}> {speaker.name} </h1>
-                                    <span className={`text-secondary/75 text-sm font-normal ${lato.className}`}> {speaker.talkTitle} </span>
+                                
+                                <div className={'flex flex-col'}>
+                                    <div>
+                                        <h1 className={`text-secondary text-xl font-bold ${lato.className}`}> {speaker.name} </h1>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <div className="flex gap-2">
+                                            {speaker.socials.map((social, index) => {
+                                                const iconSrc = getSocialIconSrc(social.type);
+                                                return (
+                                                    <a 
+                                                        key={index} 
+                                                        href={social.url} 
+                                                        target="_blank" 
+                                                        rel="noopener noreferrer" 
+                                                        className="flex items-center gap-1 text-blue-500 hover:underline"
+                                                    >
+                                                        {iconSrc && (
+                                                            <img src={iconSrc} alt={social.type} className="w-5 h-5" />
+                                                        )}
+                                                    </a>
+                                                );
+                                            })}
+                                        </div>
+                                        <span className="w-[2px] h-[20px] bg-gray-500"></span>
+                                        <span className={`text-secondary opacity-75 text-sm font-normal ${lato.className}`}> 
+                                            {speaker.talkTitle} 
+                                        </span>
+                                    </div>
                                 </div>
                                 <IoMdCloseCircleOutline
                                     className="cursor-pointer"
@@ -101,6 +142,7 @@ const Modal: React.FC<ModalProps> = ({
                             </div>
                             <div className={`py-[16px] text-xs sm:text-sm text-secondary ${lato.className} lg:${orientation == 'right' ? 'text-left' : 'text-right'}`}>
                                 {speaker.description}
+                                
                             </div>
                         </motion.div>
                     )
