@@ -7,7 +7,7 @@ import { SpeakerDetails } from "@/types";
 
 
 export const getSpeakers = async (): Promise<SpeakerDetails[]> => {
-    const speakers = await client.fetch<Speaker[]>(
+    const speakers: Speaker[] = await client.fetch<Speaker[]>(
         `*[_type=="speaker"]`,
         {},
         {
