@@ -47,7 +47,7 @@ export default function Home() {
     {
       name: "fosscell",
       image: "/landing-page/fosscell.svg",
-      link: "/",
+      link: "https://www.fosscell.org/",
     }
   ];
 
@@ -166,10 +166,10 @@ export default function Home() {
           </div>
 
 
-          <div className="w-2/3 h-full flex items-center justify-center gap-16 flex-wrap">
+          <div className="w-2/3 h-full flex items-center justify-center gap-4 md:gap-16 flex-wrap">
             {
               sponsors.map((sponsor, index) => (
-                <Link key={index} className="w-[250px] h-[150px] flex items-center justify-center cursor-pointer hover:scale-[1.05] active:scale-[0.99] transition-transform duration-300" href={sponsor.link}>
+                <Link key={index} target="_blank" className="w-[100px] h-[60px] md:w-[250px] md:h-[150px] flex items-center justify-center cursor-pointer hover:scale-[1.05] active:scale-[0.99] transition-transform duration-300" href={sponsor.link}>
                   <Image src={sponsor.image} alt={sponsor.name} className="w-full h-full object-fit-cover" width={250} height={150} />
                 </Link>
               ))
@@ -182,10 +182,10 @@ export default function Home() {
           </div>
 
 
-          <div className="w-2/3 h-full flex items-center justify-center gap-16 flex-wrap">
+          <div className="w-2/3 h-full flex items-center justify-center gap-4 md:gap-16 flex-wrap">
             {
               organizers.map((organizer, index) => (
-                <Link key={index} className="w-[250px] h-[150px] flex items-center justify-center cursor-pointer hover:scale-[1.05] active:scale-[0.99] transition-transform duration-300" href={organizer.link}>
+                <Link key={index} target="_blank" className="w-[100px] h-[60px] md:w-[250px] md:h-[150px] flex items-center justify-center cursor-pointer hover:scale-[1.05] active:scale-[0.99] transition-transform duration-300" href={organizer.link}>
                   <Image src={organizer.image} alt={organizer.name} className="w-full h-full object-fit-cover" width={250} height={150} />
                 </Link>
               ))
