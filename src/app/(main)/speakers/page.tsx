@@ -65,7 +65,7 @@ const Page = () => {
                                     name={speaker.name}
                                     talkTitle={speaker.talkTitle.length > 25 ? (speaker.talkTitle.slice(0, 25) + "...") : (speaker.talkTitle)}
                                     speakerImageUrl={speaker.speakerImageUrl}
-                                    orientation={index % 2 === 0 ? "left" : "right"}
+                                    orientation='left'
                                 />
                             )
                         }
