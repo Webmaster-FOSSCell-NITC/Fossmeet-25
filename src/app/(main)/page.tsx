@@ -38,6 +38,19 @@ export default function Home() {
     },
   ];
 
+  const organizers = [
+    {
+      name: "csea",
+      image: "/landing-page/csea.svg",
+      link: "https://assoc.cse.nitc.ac.in/",
+    },
+    {
+      name: "fosscell",
+      image: "/landing-page/fosscell.svg",
+      link: "https://www.fosscell.org/",
+    }
+  ];
+
   return (
     <Container>
       <Section className="flex items-center justify-start h-full lg:h-screen w-screen relative" id="hero">
@@ -145,21 +158,39 @@ export default function Home() {
         </div>
       </Section> */}
 
-      <Section borderTop className="flex flex-col gap-[46px] items-center justify-center my-14 h-full">
-        <div className="flex flex-col items-center justify-center ">
-          <h3 className={`text-2xl lg:text-5xl font-bold ${lato.className}`}> FOSSMeet&apos;25 </h3>
-          <span className={`${styles.outlinedText} text-primary text-2xl lg:text-5xl`}> powered by </span>
+      <Section borderTop className="flex flex-col gap-[56px] items-stretch justify-center h-full py-[36px] ">
+        <div className="flex flex-col items-center gap-[16px]">
+          <div className="flex flex-col gap-[16px] items-center justify-center ">
+            <h3 className={`text-2xl lg:text-5xl font-bold  ${lato.className}`}> FOSSMeet&apos;25 </h3>
+            <h5 className={`${styles.outlinedText} text-primary text-2xl lg:text-[32px] leading-9`}> Sponsored by </h5>
+          </div>
+
+
+          <div className="w-2/3 h-full flex items-center justify-center gap-4 md:gap-16 flex-wrap">
+            {
+              sponsors.map((sponsor, index) => (
+                <Link key={index} target="_blank" className="w-[100px] h-[60px] md:w-[250px] md:h-[150px] flex items-center justify-center cursor-pointer hover:scale-[1.05] active:scale-[0.99] transition-transform duration-300" href={sponsor.link}>
+                  <Image src={sponsor.image} alt={sponsor.name} className="w-full h-full object-fit-cover" width={250} height={150} />
+                </Link>
+              ))
+            }
+          </div>
         </div>
+        <div className="flex flex-col items-center gap-[16px]">
+          <div className="flex flex-col items-center justify-center ">
+            <h5 className={`${styles.outlinedText} text-primary text-2xl lg:text-[32px] leading-9`}> Organized by </h5>
+          </div>
 
 
-        <div className="w-2/3 h-full flex items-center justify-center gap-16 flex-wrap">
-          {
-            sponsors.map((sponsor, index) => (
-              <Link key={index} className="w-[250px] h-[150px] flex items-center justify-center cursor-pointer hover:scale-[1.05] active:scale-[0.99] transition-transform duration-300" href={sponsor.link}>
-                <Image src={sponsor.image} alt={sponsor.name} className="w-full h-full object-fit-cover" width={250} height={150} />
-              </Link>
-            ))
-          }
+          <div className="w-2/3 h-full flex items-center justify-center gap-4 md:gap-16 flex-wrap">
+            {
+              organizers.map((organizer, index) => (
+                <Link key={index} target="_blank" className="w-[100px] h-[60px] md:w-[250px] md:h-[150px] flex items-center justify-center cursor-pointer hover:scale-[1.05] active:scale-[0.99] transition-transform duration-300" href={organizer.link}>
+                  <Image src={organizer.image} alt={organizer.name} className="w-full h-full object-fit-cover" width={250} height={150} />
+                </Link>
+              ))
+            }
+          </div>
         </div>
       </Section>
     </Container>
