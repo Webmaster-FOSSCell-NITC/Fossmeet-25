@@ -7,10 +7,9 @@ import { getWorkshops } from "@/lib/workshops";
 import styles from "../styles.module.css";
 import { WorkshopDetails } from "@/types";
 
-const page = () => {
-
+const Page = () => {
     const [Workshops, setWorkshops] = useState<WorkshopDetails[]>([]);
-    
+
     useEffect(() => {
         const fetchWorkshops = async () => {
             const data = await getWorkshops();
@@ -19,8 +18,8 @@ const page = () => {
         fetchWorkshops();
     }, []);
 
-  return (
-    <Container>
+    return (
+        <Container>
             <div className="my-24 text-center flex flex-col">
                 <span className="text-4xl">Our</span>
                 <span className={`text-primary ${styles.outlinedText} !leading-[68px] text-5xl`}>
@@ -32,23 +31,23 @@ const page = () => {
 
                 {Workshops.map((workshop, index) => (
                     <WorkshopCard
-                    key={index}
-                    title={workshop.title}
-                    logoUrl={workshop.logoUrl}
-                    date={workshop.date}
-                    description={workshop.description}
-                    duration={workshop.duration}
-                    speakerName={workshop.speakerName}
-                    speakerImageUrl={workshop.speakerImageUrl}
-                    link={workshop.link}
-                    
-                />
+                        key={index}
+                        title={workshop.title}
+                        logoUrl={workshop.logoUrl}
+                        date={workshop.date}
+                        description={workshop.description}
+                        duration={workshop.duration}
+                        speakerName={workshop.speakerName}
+                        speakerImageUrl={workshop.speakerImageUrl}
+                        link={workshop.link}
+
+                    />
 
                 ))}
             </Section>
 
         </Container>
-  )
+    )
 }
 
-export default page
+export default Page
