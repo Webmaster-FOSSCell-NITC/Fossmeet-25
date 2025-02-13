@@ -63,7 +63,7 @@ const Page = () => {
                             ) : (
                                 <SpeakerCard
                                     name={speaker.name}
-                                    talkTitle={speaker.talkTitle.length > 25 ? (speaker.talkTitle.slice(0, 25) + "...") : (speaker.talkTitle)}
+                                    talkTitle={speaker.talkTitle}
                                     speakerImageUrl={speaker.speakerImageUrl}
                                     orientation='left'
                                 />
