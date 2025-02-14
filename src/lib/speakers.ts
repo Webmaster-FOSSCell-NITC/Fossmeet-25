@@ -5,8 +5,9 @@ import { urlForImage } from "../../sanity/lib/image";
 import { SpeakerDetails } from "@/types";
 
 
+
 export const getSpeakers = async (): Promise<SpeakerDetails[]> => {
-    const speakers = await client.fetch<Speaker[]>(
+    const speakers: Speaker[] = await client.fetch<Speaker[]>(
         `*[_type=="speaker"]`,
         {},
         {
@@ -15,12 +16,13 @@ export const getSpeakers = async (): Promise<SpeakerDetails[]> => {
             }
         }
     )
-
+    console.log(speakers[0])
     const output: SpeakerDetails[] = speakers.map(data => ({
         name: data.name,
-        talkTitle: data.talk,
+        talkTitle: data.talk || "",
         speakerImageUrl: urlForImage(data.image),
         description: data.description,
+        socials: data.socials ? data.socials.map((social) => ({ type: social.type, url: social.link })) : [],
     }))
 
 

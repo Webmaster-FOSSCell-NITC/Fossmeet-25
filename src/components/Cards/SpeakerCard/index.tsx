@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { gloriaHallelujah } from "@/fonts";
-
+import { motion } from 'framer-motion'
+import { useCallback, useState } from "react";
+import Marquee from "react-fast-marquee";
 /**
  * Displays a speaker card with their name, talk title, socials, and a transparent speaker image.
  *
@@ -19,31 +21,52 @@ const SpeakerCard = ({
     talkTitle,
     speakerImageUrl,
 }: SpeakerCardProps) => {
+    const [hovered, setHovered] = useState<boolean>(false);
+
+    const mouseOverHandler = useCallback(() => setHovered(true), []);
+    const mouseLeaveHandler = useCallback(() => setHovered(false), []);
+
     return (
-        <div
-            className={`relative w-[250px] h-[400px] bg-primary shadow-lg flex-col justify-between overflow-hidden`}>
-            <div className="absolute left-0 bottom-[-50px] w-[300px] h-[350px]">
-                <Image
-                    src={speakerImageUrl}
-                    alt={`${name} Picture`}
-                    className="object-fit-cover"
-                    width={500}
-                    height={500}
-                />
-            </div>
-            {orientation === 'right' ? (
-                <div className="absolute top-[25px] right-[35px] text-center">
-                    <h2 className="text-secondary text-[20px] font-bold"> {name} </h2>
-                    <p className="text-white text-[14px] mt-1"> {talkTitle} </p>
-                </div>
-            ) : (
-                <div className="absolute top-[25px] left-[35px] text-center">
-                    <h2 className="text-secondary text-[20px] font-bold"> {name} </h2>
-                    <p className="text-white text-[14px] mt-1"> {talkTitle} </p>
-                </div>
-            )}
+    <div
+      className="relative w-[250px] h-[400px] bg-primary shadow-lg flex-col justify-between overflow-hidden cursor-pointer"
+      onMouseOver={mouseOverHandler}
+      onMouseLeave={mouseLeaveHandler}
+    >
+      <img
+        src={speakerImageUrl}
+        alt={`${name}-picture`}
+        className="object-cover absolute right-0 bottom-0 h-[350px] w-full"
+      />
+
+      <div className="absolute top-[10px] left-0 w-full px-[10px]">
+        <h2 className="text-secondary text-[20px] font-bold w-full text-center">{name}</h2>
+
+      
+        <div className="relative w-full overflow-hidden mt-1 h-[20px]">
+          {talkTitle.length <= 25 ? (
+            
+            <p className="text-white text-[14px]">{talkTitle}</p>
+          ) : !hovered ? (
+            
+            <p className="text-white text-[14px] truncate">
+              {talkTitle.slice(0, 25) + "..."}
+            </p>
+          ) : (
+            
+            <motion.div
+              className="whitespace-nowrap text-white text-[14px] w-max"
+              animate={{ x: ["0%", "-100%"] }}
+              transition={{ duration: 9, ease: "linear", repeat: Infinity }}
+            >
+              {talkTitle}  
+            </motion.div>
+          )}
         </div>
-    );
+        
+        </div>
+      </div>
+    //</div>
+  );
 };
 
 export default SpeakerCard;

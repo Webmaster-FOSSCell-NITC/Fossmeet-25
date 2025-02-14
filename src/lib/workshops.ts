@@ -5,7 +5,7 @@ import { urlForImage } from '../../sanity/lib/image'
 import { WorkshopDetails } from '@/types'
 
 export const getWorkshops = async (): Promise<WorkshopDetails[]> => {
-    const workshops = await client.fetch<Workshop[]>(
+    const workshops: Workshop[] = await client.fetch<Workshop[]>(
         `*[_type=="workshop"]`,
         {},
         {
