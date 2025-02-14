@@ -63,7 +63,7 @@ t.me/foss_meet
 
     return (
         <footer className="h-full relative overflow-hidden">
-            <div className="bg-secondary text-white px-[16px] lg:p-[40px] flex items-center gap-[40px] justify-start">
+            <div className="bg-secondary text-white p-8 lg:p-[40px] flex items-start gap-[40px] justify-start">
                 <div className="h-[550px] w-[550px] hidden lg:block">
                     <Image src="/footer/foss-ascii.png" alt="ascii-art" className="w-full h-full object-fit-cover" draggable={false} width={500} height={500} />
                 </div>
@@ -90,7 +90,7 @@ t.me/foss_meet
                         ))
                     }
 
-                    <Image src="/footer/color-selection.svg" height={25} width={300} draggable={false} alt="color-picker" className="mt-14" />
+                    <Image src="/footer/color-selection.svg" height={25} width={300} draggable={false} alt="color-picker" className="mt-[16px] lg:mt-14" />
                 </div>
             </div>
             <div className={`w-full py-[10px] px-[16px] bg-primary ${lato.className} flex items-center justify-between`}>
@@ -98,7 +98,10 @@ t.me/foss_meet
                     <img src="/footer/logo.svg" alt="footer-logo" height={25} width={25} />
                     <h4 className="font-bold text-xl lg:text-2xl"> FOSSMeet &apos;25 </h4>
                 </div>
-                <span className="font-normal text-base hidden lg:block"> An event conducted by FOSSCell NITC in collaboration with CSEA </span>
+                <span className="font-normal text-base hidden lg:block">
+  An event conducted by <a href="https://www.fosscell.org" target="_blank" rel="noopener noreferrer" >FOSSCell NITC</a> in collaboration with 
+  <a href="https://www.assoc.cse.nitc.ac.in/" target="_blank" rel="noopener noreferrer" > CSEA</a>
+</span>
 
             </div>
         </footer>

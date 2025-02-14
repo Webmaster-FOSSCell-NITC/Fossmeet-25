@@ -1,6 +1,6 @@
 'use client';
 import { motion, AnimatePresence, HTMLMotionProps } from 'framer-motion'
-import { JSX, ReactNode, useMemo } from 'react';
+import { JSX, ReactNode, RefObject, useMemo } from 'react';
 
 /**
  * Wraps around the page to provide a consistent layout to all the pages.
@@ -17,6 +17,7 @@ const Container = ({
     children,
     className,
     disableAnimation = true,
+    ref,
 }: ContainerProps): JSX.Element => {
     const containerClass = useMemo(() => `w-screen overflow-x-hidden min-h-screen h-full flex flex-col items-center justify-center relative ${className}`, [className]);
     const containerProps: HTMLMotionProps<'div'> = useMemo(() =>
@@ -38,7 +39,7 @@ const Container = ({
 
     return (
         <AnimatePresence>
-            <motion.div {...containerProps}>
+            <motion.div {...containerProps} ref={ref}>
                 {children}
             </motion.div>
         </AnimatePresence>
@@ -49,7 +50,8 @@ const Container = ({
 
 export default Container;
 export interface ContainerProps {
-    children: ReactNode
-    className?: string
-    disableAnimation?: boolean
+    children: ReactNode,
+    className?: string,
+    disableAnimation?: boolean,
+    ref?: RefObject<HTMLDivElement | null>,
 };
