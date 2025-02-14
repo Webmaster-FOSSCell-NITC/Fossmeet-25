@@ -6,20 +6,32 @@ import { lato } from "@/fonts";
 import styles from './styles.module.css'
 import Marquee from "@/components/Marquee";
 import Image from 'next/image'
-// import { getWorkshops } from "@/lib/workshops";
-// import { getSpeakers } from "@/lib/speakers";
+import { getWorkshops } from "@/lib/workshops";
+import { getSpeakers } from "@/lib/speakers";
 import Dialog from "@/components/Dialog";
 import TownScriptWidget from "@/components/TownScriptWidget";
 import Link from "next/link";
 import Button from "@/components/Button";
-// import WorkshopCard, { WorkshopCardProps } from "@/components/Cards/WorkshopCard";
-// import SpeakerCard, { SpeakerCardProps } from "@/components/Cards/SpeakerCard";
-// import Carousel from "@/components/Carousel";
-// import Button from "@/components/Button";
+import WorkshopCard, { WorkshopCardProps } from "@/components/Cards/WorkshopCard";
+import SpeakerCard, { SpeakerCardProps } from "@/components/Cards/SpeakerCard";
+import Carousel from "@/components/Carousel";
+import { useState, useEffect } from "react";
+import { SpeakerDetails, WorkshopDetails } from "@/types";
+
 
 export default function Home() {
-  // const workshops = await getWorkshops();
-  // const speakers = await getSpeakers();
+
+  const [workshops, setWorkshops] = useState<WorkshopDetails[]>([]);
+  const [speakers, setSpeakers] = useState<SpeakerDetails[]>([]);
+
+  async function fetchData() {
+    const workshopsData = await getWorkshops();
+    const speakersData = await getSpeakers();
+    setWorkshops(workshopsData);
+    setSpeakers(speakersData);
+  }
+
+  fetchData();
   const sponsors = [
     {
       name: "nilenso",
@@ -37,6 +49,22 @@ export default function Home() {
       link: "https://fossunited.org/",
     },
   ];
+
+  const partners = [
+    {
+      name: "nilenso",
+      image: "/landing-page/nilenso.svg",
+    },
+    {
+      name: "saeloun",
+      image: "/landing-page/saeloun.svg",
+    },
+    {
+      name: "abc",
+      image: "/landing-page/fossunited.svg",
+    },
+  ];
+  
 
   const organizers = [
     {
@@ -110,14 +138,14 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* <Section className="flex flex-col items-center justify-start h-full lg:min-h-screen h-full w-full p-0 py-4 lg:py-14" id="workshops" borderTop>
+      <Section className="flex flex-col items-center justify-start h-full lg:min-h-screen h-full w-full p-0 py-4 lg:py-14" id="workshops" borderTop>
         <div className="flex justify-between gap-4 w-full items-center">
           <div className="flex flex-col gap-0 lg:gap-4 w-full">
             <span className={`${lato.className} font-normal text-2xl lg:text-5xl`}> Engaging </span>
             <span className={`${styles.outlinedText} text-primary text-2xl lg:text-5xl`}> Workshops </span>
           </div>
 
-          <Button className="text-sm lg:text-xl text-nowrap" disabled> View all Workshops </Button>
+          <Button className="text-sm lg:text-xl text-nowrap" > <a href="/workshops">View All Workshops</a> </Button>
 
         </div>
 
@@ -154,9 +182,11 @@ export default function Home() {
             Join us to explore a dynamic lineup of speakers as they share their expertise, ignite ideas, and inspire meaningful change within our community.
           </p>
 
-          <Button disabled className="text-sm lg:text-xl" > View All Speakers </Button>
+          <Button className="text-sm lg:text-xl">
+            <a href="/speakers">View All Speakers</a>
+          </Button>
         </div>
-      </Section> */}
+      </Section>
 
       <Section borderTop className="flex flex-col gap-[56px] items-stretch justify-center h-full py-[36px] ">
         <div className="flex flex-col items-center gap-[16px]">
@@ -175,6 +205,20 @@ export default function Home() {
               ))
             }
           </div>
+          
+          <div className="flex flex-col items-center gap-[16px]">
+            <h5 className={`${styles.outlinedText} text-primary text-2xl lg:text-[32px] leading-9`}> Community Partners </h5>
+          </div>
+          <div className="w-2/3 h-full flex items-center justify-center gap-4 md:gap-16 flex-wrap">
+            {
+              partners.map((partners, index) => (
+                <div key={index} className="w-[100px] h-[60px] md:w-[250px] md:h-[150px] flex items-center justify-center cursor-pointer hover:scale-[1.05] active:scale-[0.99] transition-transform duration-300">
+                  <Image src={partners.image} alt={partners.name} className="w-full h-full object-fit-cover" width={250} height={150} />
+                </div>
+              ))
+            }
+          </div>
+
         </div>
         <div className="flex flex-col items-center gap-[16px]">
           <div className="flex flex-col items-center justify-center ">

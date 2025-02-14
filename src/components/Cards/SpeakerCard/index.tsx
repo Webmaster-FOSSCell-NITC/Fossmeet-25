@@ -65,7 +65,6 @@ const SpeakerCard = ({
         
         </div>
       </div>
-    //</div>
   );
 };
 
