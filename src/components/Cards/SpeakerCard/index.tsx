@@ -21,56 +21,52 @@ const SpeakerCard = ({
     talkTitle,
     speakerImageUrl,
 }: SpeakerCardProps) => {
-    const [hovered, setHovered] = useState<boolean>(true);
+    const [hovered, setHovered] = useState<boolean>(false);
 
     const mouseOverHandler = useCallback(() => setHovered(true), []);
     const mouseLeaveHandler = useCallback(() => setHovered(false), []);
 
     return (
-        <div
-            className={`relative w-[250px] h-[400px] bg-primary shadow-lg flex-col justify-between`}
-        // onMouseOver={mouseOverHandler}
-        // onMouseLeave={mouseLeaveHandler}
-        >
-            <img
-                src={speakerImageUrl}
+    <div
+      className="relative w-[250px] h-[400px] bg-primary shadow-lg flex-col justify-between overflow-hidden cursor-pointer"
+      onMouseOver={mouseOverHandler}
+      onMouseLeave={mouseLeaveHandler}
+    >
+      <img
+        src={speakerImageUrl}
+        alt={`${name}-picture`}
+        className="object-cover absolute right-0 bottom-0 h-[350px] w-full"
+      />
 
-                alt={`${name}-picture`}
-                className="object-cover absolute right-0 bottom-0 h-[350px] w-full"
-            />
+      <div className="absolute top-[10px] left-0 w-full px-[10px]">
+        <h2 className="text-secondary text-[20px] font-bold w-full text-center">{name}</h2>
 
-            <div className="absolute top-[10px] left-0 w-full px-[10px]">
-                <h2 className="text-secondary text-[20px] font-bold w-full text-center"> {name} </h2>
-                {
-                    hovered ? (
-                        <p className="text-white text-[14px] mt-1 text-left w-full text-nowrap overflow-hidden relative">
-                            {
-                                <motion.span
-                                    className="block text-full text-nowrap w-full h-full absolute outline"
-                                    initial={{
-                                        top: 0,
-                                        left: 0,
-                                    }}
-                                    // animate={{
-                                    //     x: '-10%'
-                                    // }}
-                                    transition={{
-                                        duration: 5
-                                    }}
-                                >
-                                    {talkTitle}
-                                </motion.span>
-                            }
-                        </p>
-                    ) : (
-                        <p className="text-white text-[14px] mt-1 text-left truncate w-4/5">
-                            {talkTitle}
-                        </p>
-                    )
-                }
-            </div>
+      
+        <div className="relative w-full overflow-hidden mt-1 h-[20px]">
+          {talkTitle.length <= 25 ? (
+            
+            <p className="text-white text-[14px]">{talkTitle}</p>
+          ) : !hovered ? (
+            
+            <p className="text-white text-[14px] truncate">
+              {talkTitle.slice(0, 25) + "..."}
+            </p>
+          ) : (
+            
+            <motion.div
+              className="whitespace-nowrap text-white text-[14px] w-max"
+              animate={{ x: ["0%", "-100%"] }}
+              transition={{ duration: 9, ease: "linear", repeat: Infinity }}
+            >
+              {talkTitle}  
+            </motion.div>
+          )}
         </div>
-    );
+        
+        </div>
+      </div>
+    //</div>
+  );
 };
 
 export default SpeakerCard;
