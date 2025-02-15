@@ -6,7 +6,7 @@ import { lato } from "@/fonts";
  *
  * @param {WorkshopCardProps} props - Props for the WorkshopCard component.
  * @param {string} [props.logoUrl] - image representing the workshop
-* @param {string} [props.title] - Title of the workshop
+ * @param {string} [props.title] - Title of the workshop
  * @param {string} [props.date] - date in which the workshop will be happening
  * @param {string} [props.duration] - duration of the workshop
  * @param {string} [props.description] - brief idea on what the workshop will be about
@@ -28,7 +28,7 @@ const WorkshopCard = ({
     link,
 }: WorkshopCardProps) => {
     return (
-        <div className={`border border-secondary/25 shadow-lg p-0 w-[300px] flex flex-col justify-between ${lato.className}`}>
+        <div className={`border border-secondary/25 shadow-lg p-0 w-[300px] flex flex-col justify-between cursor-pointer ${lato.className}`}>
             <div className="w-full h-[250px] overflow-hidden relative">
                 <Image
                     src={logoUrl}

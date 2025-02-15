@@ -1,49 +1,80 @@
 "use client"
+
 import { useState, useEffect } from "react";
 import WorkshopCard from "@/components/Cards/WorkshopCard";
 import Container from "@/components/Container";
 import Section from "@/components/Section";
+import Modal from "@/components/Modals/WorkshopModal";
 import { getWorkshops } from "@/lib/workshops";
 import styles from "../styles.module.css";
 import { WorkshopDetails } from "@/types";
-
+//import useDisplayWidth from "@/hooks/DisplayWidth";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const Page = () => {
-    const [Workshops, setWorkshops] = useState<WorkshopDetails[]>([]);
+    const [workshops, setWorkshops] = useState<WorkshopDetails[]>([]);
+    const [selectedWorkshop, setSelectedWorkshop] = useState<WorkshopDetails | null>(null);
+    //const screenWidth = useDisplayWidth();
+    const [numCols, setNumCols] = useState<number>(1);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchWorkshops = async () => {
-            setLoading(true);
-            try {
+            try{
                 const data = await getWorkshops();
                 setWorkshops(data);
-            } catch(error) {
-                console.error(error);
-            } finally {
+            }
+            catch(error){
+                console.log(error);
+            }
+            finally{
                 setLoading(false);
             }
-
+            
         };
         fetchWorkshops();
     }, []);
 
+    // useEffect(() => {
+    //     if (screenWidth > 1440)
+    //         setNumCols(4);
+    //     else if (screenWidth > 1080)
+    //         setNumCols(3);
+    //     else if (screenWidth > 800)
+    //         setNumCols(2);
+    //     else if (screenWidth > 600)
+    //         setNumCols(1);
+    //     else
+    //         setNumCols(1);
+    // }, [screenWidth]);
+
     return (
-        <Container>
-            <div className="my-24 text-center flex flex-col">
+        <Container >
+            <div className="mt-28 text-center flex flex-col">
                 <span className="text-4xl">Our</span>
                 <span className={`text-primary ${styles.outlinedText} !leading-[68px] text-5xl`}>
                     Workshops
                 </span>
             </div>
 
-           
-                {
+            {
                     !loading ?
-                    <Section className="mb-24 grid grid-cols-1 gap-y-12 xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center w-full h-full ">
+                    <Section className="grid grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 place-items-center w-full h-full">
 
-                            {Workshops.map((workshop, index) => (
+                {workshops.map((workshop, index) => (
+                    <div
+                        key={index}
+                        className="m-4"
+                        onClick={() => setSelectedWorkshop(workshop)}
+                    >
+                        {
+                            (selectedWorkshop == workshop) ? (
+                                <Modal
+                                    workshop={selectedWorkshop}
+                                    onClose={() => setSelectedWorkshop(null)}
+                                    orientation={index % (numCols) >= 2 ? 'left' : 'right'}
+                                />
+                            ) : (
                                 <WorkshopCard
                                     key={index}
                                     title={workshop.title}
@@ -56,14 +87,15 @@ const Page = () => {
                                     link={workshop.link}
 
                                 />
-
-                            ))}
-
-                    </Section>
+                            )
+                        }
+                    </div>
+                ))}
+            </Section>
                         
                         :
                         
-                        <div className="w-full h-full flex gap-1 justify-center items-center">
+                        <div className="w-full h-full flex gap-1 justify-center items-center mt-20">
                             <h1 className="text-secondary text-2xl">Loading</h1>
                             <div className="flex space-x-1">
                                 {[0, 1, 2].map((i) => (
@@ -79,11 +111,8 @@ const Page = () => {
 
                 }
 
-
-            
-
         </Container>
-    )
-}
+    );
+};
 
-export default Page
+export default Page;
