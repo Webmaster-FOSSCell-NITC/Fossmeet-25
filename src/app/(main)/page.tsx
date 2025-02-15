@@ -174,7 +174,7 @@ export default function Home() {
             }
           </Carousel>
         </div>
-        <div className="w-full lg:w-1/2 h-full flex lg:ps-14 flex-col items-start justify-center gap-4">
+        <div className="w-full mb-8 lg:mb-3 lg:w-1/2 h-full flex lg:ps-14 flex-col items-start justify-center gap-4">
 
           {/* <span className={`${lato.className} font-normal text-2xl lg:text-5xl`}> Meet our  </span>
           <span className={`${styles.outlinedText} text-primary text-2xl lg:text-5xl`}> Speakers </span> */}
