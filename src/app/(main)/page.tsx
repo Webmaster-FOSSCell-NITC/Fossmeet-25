@@ -52,16 +52,12 @@ export default function Home() {
 
   const partners = [
     {
-      name: "nilenso",
-      image: "/landing-page/nilenso.svg",
+      name: "Foss",
+      image: "/landing-page/foss.png",
     },
     {
-      name: "saeloun",
-      image: "/landing-page/saeloun.svg",
-    },
-    {
-      name: "abc",
-      image: "/landing-page/fossunited.svg",
+      name: "fossclub",
+      image: "/landing-page/fossclub.svg",
     },
   ];
   
