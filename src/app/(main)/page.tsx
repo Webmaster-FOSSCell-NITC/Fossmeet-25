@@ -145,7 +145,7 @@ export default function Home() {
             <span className={`${styles.outlinedText} text-primary text-2xl lg:text-5xl`}> Workshops </span>
           </div>
 
-          <Button className="text-sm lg:text-xl text-nowrap" > <a href="/workshops">View All Workshops</a> </Button>
+          <Button className="text-sm lg:text-xl text-nowrap" href="/workshops"> View All Workshops </Button>
 
         </div>
 
@@ -182,9 +182,7 @@ export default function Home() {
             Join us to explore a dynamic lineup of speakers as they share their expertise, ignite ideas, and inspire meaningful change within our community.
           </p>
 
-          <Button className="text-sm lg:text-xl">
-            <a href="/speakers">View All Speakers</a>
-          </Button>
+          <Button className="text-sm lg:text-xl" href="/speakers"> View All Speakers </Button>
         </div>
       </Section>
 
