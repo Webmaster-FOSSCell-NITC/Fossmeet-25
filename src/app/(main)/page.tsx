@@ -138,8 +138,8 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section className="flex flex-col items-center justify-start h-full lg:min-h-screen h-full w-full p-0 py-4 lg:py-14" id="workshops" borderTop>
-        <div className="flex justify-between gap-4 w-full items-center">
+      <Section className="flex flex-col items-center justify-start w-full p-0 py-4 " id="workshops" borderTop>
+        <div className="flex flex-col sm:flex-row justify-between gap-4 w-full items-start sm:items-center">
           <div className="flex flex-col gap-0 lg:gap-4 w-full">
             <span className={`${lato.className} font-normal text-2xl lg:text-5xl`}> Engaging </span>
             <span className={`${styles.outlinedText} text-primary text-2xl lg:text-5xl`}> Workshops </span>
@@ -162,7 +162,7 @@ export default function Home() {
 
         </div>
       </Section>
-      <Section className="flex flex-col-reverse lg:flex-row items-center justify-start h-full lg:min-h-screen h-full w-full" id="speakers" borderTop>
+      <Section className="flex flex-col-reverse lg:flex-row items-center justify-start py-5 lg:py-10 w-full" id="speakers" borderTop>
         <div className="w-full lg:w-1/2 h-full flex items-center justify-center">
           <Carousel className="w-full" maxPerPage={2}>
             {
@@ -175,8 +175,14 @@ export default function Home() {
           </Carousel>
         </div>
         <div className="w-full lg:w-1/2 h-full flex lg:ps-14 flex-col items-start justify-center gap-4">
-          <span className={`${lato.className} font-normal text-2xl lg:text-5xl`}> Meet our  </span>
-          <span className={`${styles.outlinedText} text-primary text-2xl lg:text-5xl`}> Speakers </span>
+
+          {/* <span className={`${lato.className} font-normal text-2xl lg:text-5xl`}> Meet our  </span>
+          <span className={`${styles.outlinedText} text-primary text-2xl lg:text-5xl`}> Speakers </span> */}
+
+          <div className="flex flex-col gap-0 lg:gap-4 w-full">
+            <span className={`${lato.className} font-normal text-2xl lg:text-5xl`}> Meet Our </span>
+            <span className={`${styles.outlinedText} text-primary text-2xl lg:text-5xl`}> Speakers </span>
+          </div>
 
           <p className="!leading-[24px] lg:!leading-[44px] text-base lg:text-xl font-normal leading-[44px] w-full lg:w-2/3">
             Join us to explore a dynamic lineup of speakers as they share their expertise, ignite ideas, and inspire meaningful change within our community.
