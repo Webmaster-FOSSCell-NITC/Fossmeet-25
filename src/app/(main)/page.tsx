@@ -54,10 +54,12 @@ export default function Home() {
     {
       name: "Foss",
       image: "/landing-page/foss.png",
+      link: "https://fossnss.org/"
     },
     {
       name: "fossclub",
       image: "/landing-page/fossclub.svg",
+      link: "https://fossunited.org/c/sset"
     },
   ];
   
@@ -196,7 +198,7 @@ export default function Home() {
           </div>
 
 
-          <div className="w-2/3 h-full flex items-center justify-center gap-4 md:gap-16 flex-wrap">
+          <div className="w-2/3 h-full sm:m-10 flex items-center justify-center gap-4 md:gap-16 flex-wrap">
             {
               sponsors.map((sponsor, index) => (
                 <Link key={index} target="_blank" className="w-[100px] h-[60px] md:w-[250px] md:h-[150px] flex items-center justify-center cursor-pointer hover:scale-[1.05] active:scale-[0.99] transition-transform duration-300" href={sponsor.link}>
@@ -209,12 +211,12 @@ export default function Home() {
           <div className="flex flex-col items-center gap-[16px]">
             <h5 className={`${styles.outlinedText} text-primary text-2xl lg:text-[32px] leading-9`}> Community Partners </h5>
           </div>
-          <div className="w-2/3 h-full flex items-center justify-center gap-4 md:gap-16 flex-wrap">
+          <div className="w-2/3 h-full sm:m-10 flex items-center justify-center gap-4 md:gap-16 flex-wrap">
             {
-              partners.map((partners, index) => (
-                <div key={index} className="w-[100px] h-[60px] md:w-[250px] md:h-[150px] flex items-center justify-center cursor-pointer hover:scale-[1.05] active:scale-[0.99] transition-transform duration-300">
-                  <Image src={partners.image} alt={partners.name} className="w-full h-full object-fit-cover" width={250} height={150} />
-                </div>
+              partners.map((partner, index) => (
+                <Link key={index} className="w-[100px] h-[60px] md:w-[250px] md:h-[150px] flex items-center justify-center cursor-pointer hover:scale-[1.05] active:scale-[0.99] transition-transform duration-300" href={partner.link}>
+                  <Image src={partner.image} alt={partner.name} className="w-full h-full object-fit-cover" width={250} height={150} />
+                </Link>
               ))
             }
           </div>
