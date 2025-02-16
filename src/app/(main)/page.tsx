@@ -52,14 +52,19 @@ export default function Home() {
 
   const partners = [
     {
-      name: "Foss",
+      name: "FOSSNSS",
       image: "/landing-page/foss.png",
       link: "https://fossnss.org/"
     },
     {
-      name: "fossclub",
+      name: "SSET",
       image: "/landing-page/fossclub.svg",
       link: "https://fossunited.org/c/sset"
+    },
+    {
+      name: "Mukti",
+      image: "/landing-page/mukti.png",
+      link: "https://mukticommunity.github.io/"
     },
   ];
   
