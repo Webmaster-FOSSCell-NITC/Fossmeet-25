@@ -89,12 +89,12 @@ export default function Home() {
           <div className="flex flex-col gap-8">
             <h1 className={`${lato.className} font-medium text-center lg:text-left text-5xl lg:text-8xl`}> FOSSMeet&apos;25 </h1>
             <div>
-              <span className={`text-2xl lg:text-5xl font-normal !leading-[68px]`}>
+              <span className={`text-2xl lg:text-5xl font-normal !leading-[38px] lg:!leading-[68px]`}>
                 Celebrating
-                <span className={`text-primary ${styles.outlinedText} !leading-[68px]`}> 20 years </span>
+                <span className={`text-primary ${styles.outlinedText} !leading-[38px] lg:!leading-[68px]`}> 20 years </span>
               </span>
               <br />
-              <span className="text-2xl lg:text-5xl font-normal !leading-[68px]"> of FOSSMeet </span>
+              <span className="text-2xl lg:text-5xl font-normal !leading-[38px] lg:!leading-[68px]"> of FOSSMeet </span>
             </div>
           </div>
           <div className="flex flex-col gap-8 mt-14 lg:mt-24">
