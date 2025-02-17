@@ -50,7 +50,8 @@ const Carousel = ({
                 breakpoint: 920,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1
+                    slidesToScroll: 1,
+                    infinite: true,
                 }
             }
         ],
