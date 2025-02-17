@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image";
 import { gloriaHallelujah } from "@/fonts";
 import { motion } from 'framer-motion'

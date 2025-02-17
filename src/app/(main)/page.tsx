@@ -24,14 +24,20 @@ export default function Home() {
   const [workshops, setWorkshops] = useState<WorkshopDetails[]>([]);
   const [speakers, setSpeakers] = useState<SpeakerDetails[]>([]);
 
-  async function fetchData() {
-    const workshopsData = await getWorkshops();
-    const speakersData = await getSpeakers();
-    setWorkshops(workshopsData);
-    setSpeakers(speakersData);
-  }
+  
+  useEffect(() => {
+    async function fetchData() {
+      const workshopsData = await getWorkshops();
+      const speakersData = await getSpeakers();
+      setWorkshops(workshopsData);
+      setSpeakers(speakersData);
+    }
+  
+    void fetchData();
+    
+  }, []);
 
-  fetchData();
+
   const sponsors = [
     {
       name: "nilenso",

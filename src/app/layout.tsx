@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { gloriaHallelujah } from "@/fonts";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "FOSSMeet'25",
@@ -17,10 +18,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${gloriaHallelujah.className} antialiased`}
-      >
+        >
         {children}
       </body>
     </html>
