@@ -64,7 +64,7 @@ const Navbar = () => {
                     <img src="/navbar/logo.svg" height={25} width={25} alt="logo" />
                     <h2 className={`text-2xl font-bold  ${lato.className}`} > FOSSMeet&apos;25 </h2>
                 </Link>
-                <div className='w-full flex items-center justify-end lg:w-3/5 h-full p-4 lg:px-8 lg:py-4 z-[2]'>
+                <div className='w-full flex items-center justify-end lg:w-3/5 h-full p-4 lg:px-8 lg:py-4 z-[2] border-b-[1px]'>
                     <div className="hidden h-full lg:flex items-center relative justify-center gap-4">
                         {
                             navBarItems.map((item, index) => (
