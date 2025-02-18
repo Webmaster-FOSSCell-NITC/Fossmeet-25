@@ -14,7 +14,7 @@ const MobileNavItem = ({ item, index, onClick }: MobileNavItemProps) => {
                 {item.name}
             </motion.button>
             <motion.img
-                src="/Navbar/rarr.svg"
+                src="/navbar/rarr.svg"
                 width={20}
                 height={20}
                 alt="arrow-right"

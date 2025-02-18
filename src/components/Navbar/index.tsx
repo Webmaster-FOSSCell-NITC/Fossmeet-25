@@ -61,7 +61,7 @@ const Navbar = () => {
         <div className={`fixed top-0 left-0 w-full flex items-center justify-center bg-white z-[100] h-16 border-b-[1px] ${lato.className}`}>
             <nav className="w-full max-w-[1920px] h-16 flex items-center justify-between">
                 <Link href="/" className='w-full lg:w-1/5 h-full flex items-center p-4 lg:px-8 lg:py-4 order-first z-[200]'>
-                    <img src="/Navbar/logo.svg" height={25} width={25} alt="logo" />
+                    <img src="/navbar/logo.svg" height={25} width={25} alt="logo" />
                     <h2 className={`text-2xl font-bold  ${lato.className}`} > FOSSMeet&apos;25 </h2>
                 </Link>
                 <div className='w-full flex items-center justify-end lg:w-3/5 h-full p-4 lg:px-8 lg:py-4 z-[2]'>
@@ -83,7 +83,7 @@ const Navbar = () => {
                         <span className='absolute -bottom-4 left-0 w-full h-[1px] bg-white' />
                     </div>
                     <button className='h-full lg:hidden flex items-center justify-end' onClick={toggleMenu}>
-                        <img src="/Navbar/hamburger-menu-svgrepo-com.svg" width={75} height={75} alt=" hamburger-menu" />
+                        <img src="/navbar/hamburger-menu-svgrepo-com.svg" width={75} height={75} alt=" hamburger-menu" />
                     </button>
                 </div>
                 
