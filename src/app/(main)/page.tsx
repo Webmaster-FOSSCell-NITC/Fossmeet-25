@@ -72,6 +72,11 @@ export default function Home() {
       image: "/landing-page/mukti.png",
       link: "https://mukticommunity.github.io/"
     },
+    {
+      name: "MITS",
+      image: "/landing-page/mits.svg",
+      link: "https://fossunited.org/c/mits"
+    },
   ];
   
 
