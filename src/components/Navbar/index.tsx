@@ -83,7 +83,7 @@ const Navbar = () => {
                         <span className='absolute -bottom-4 left-0 w-full h-[1px] bg-white' />
                     </div>
                     <button className='h-full lg:hidden flex items-center justify-end' onClick={toggleMenu}>
-                        <img src="/navbar/hamburger-menu-svgrepo-com.svg" width={75} height={75} alt=" hamburger-menu" />
+                        <img src="/navbar/hamburger-menu-svgrepo-com.svg" width={40} height={40} alt=" hamburger-menu" />
                     </button>
                 </div>
                 
