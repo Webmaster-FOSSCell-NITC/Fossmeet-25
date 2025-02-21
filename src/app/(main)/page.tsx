@@ -77,19 +77,24 @@ export default function Home() {
       image: "/landing-page/mits.svg",
       link: "https://fossunited.org/c/mits"
     },
+    {
+      name: "AGCE",
+      image: "/landing-page/agce.png",
+      link: "https://www.linkedin.com/company/foss-club-ajce/"
+    },
   ];
   
 
   const organizers = [
     {
-      name: "csea",
-      image: "/landing-page/csea.svg",
-      link: "https://assoc.cse.nitc.ac.in/",
-    },
-    {
       name: "fosscell",
       image: "/landing-page/fosscell.svg",
       link: "https://www.fosscell.org/",
+    },
+    {
+      name: "csea",
+      image: "/landing-page/csea.svg",
+      link: "https://assoc.cse.nitc.ac.in/",
     }
   ];
 
@@ -231,7 +236,7 @@ export default function Home() {
             {
               partners.map((partner, index) => (
                 <Link key={index} className="w-[100px] h-[60px] md:w-[250px] md:h-[150px] flex items-center justify-center cursor-pointer hover:scale-[1.05] active:scale-[0.99] transition-transform duration-300" href={partner.link}>
-                  <Image src={partner.image} alt={partner.name} className="w-full h-full object-fit-cover" width={250} height={150} />
+                  <Image src={partner.image} alt={partner.name} className="w-full h-full object-contain" width={250} height={150} />
                 </Link>
               ))
             }
