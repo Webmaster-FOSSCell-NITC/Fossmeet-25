@@ -82,6 +82,11 @@ export default function Home() {
       image: "/landing-page/agce.png",
       link: "https://www.linkedin.com/company/foss-club-ajce/"
     },
+    {
+      name: "STIST",
+      image: "/landing-page/stist.png",
+      link: "https://www.instagram.com/fossclubstist?igsh=MTFmaWRzdjZwc25yaA=="
+    },
   ];
   
 
