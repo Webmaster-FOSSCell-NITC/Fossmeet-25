@@ -87,6 +87,11 @@ export default function Home() {
       image: "/landing-page/stist.png",
       link: "https://www.instagram.com/fossclubstist?igsh=MTFmaWRzdjZwc25yaA=="
     },
+    {
+      name: "MEC",
+      image: "/landing-page/mec.png",
+      link: "https://fossmec.netlify.app/"
+    },
   ];
   
 
