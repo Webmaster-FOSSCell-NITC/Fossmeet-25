@@ -97,6 +97,11 @@ export default function Home() {
       image: "/landing-page/fshm.png",
       link: "https://www.fshm.org/"
     },
+    {
+      name: "CEAL",
+      image: "/landing-page/ceal.png",
+      link: "https://foss.ceal.in"
+    },
   ];
   
 
