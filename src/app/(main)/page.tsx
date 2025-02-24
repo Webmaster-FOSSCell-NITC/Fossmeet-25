@@ -92,6 +92,11 @@ export default function Home() {
       image: "/landing-page/mec.png",
       link: "https://fossmec.netlify.app/"
     },
+    {
+      name: "FSHM",
+      image: "/landing-page/fshm.png",
+      link: "https://www.fshm.org/"
+    },
   ];
   
 
