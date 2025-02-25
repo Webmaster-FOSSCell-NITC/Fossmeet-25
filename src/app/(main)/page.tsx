@@ -102,6 +102,16 @@ export default function Home() {
       image: "/landing-page/ceal.png",
       link: "https://foss.ceal.in"
     },
+    {
+      name: "amFOSS",
+      image: "/landing-page/amfoss.png",
+      link: "https://amfoss.in"
+    },
+    // {
+    //   name: "GECT",
+    //   image: "/landing-page/gect.png",
+    //   link: "https://www.instagram.com/fossgect?igsh=MWRpZmI5djA0bG56eQ=="
+    // },
   ];
   
 
