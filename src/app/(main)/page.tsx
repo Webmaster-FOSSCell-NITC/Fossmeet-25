@@ -107,11 +107,11 @@ export default function Home() {
       image: "/landing-page/amfoss.png",
       link: "https://amfoss.in"
     },
-    // {
-    //   name: "GECT",
-    //   image: "/landing-page/gect.png",
-    //   link: "https://www.instagram.com/fossgect?igsh=MWRpZmI5djA0bG56eQ=="
-    // },
+    {
+      name: "GECT",
+      image: "/landing-page/gect.svg",
+      link: "https://www.instagram.com/fossgect?igsh=MWRpZmI5djA0bG56eQ=="
+    },
   ];
   
 
