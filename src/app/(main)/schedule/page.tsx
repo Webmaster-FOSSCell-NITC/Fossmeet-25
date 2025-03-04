@@ -69,7 +69,7 @@ const Page = () => {
     return (
         <Container>
             <div className="mt-28 text-center flex flex-col">
-                <span className="text-4xl">Our</span>
+                <span className="text-4xl">Event</span>
                 <span className={`text-primary ${styles.outlinedText} !leading-[68px] text-5xl`}>
                     Schedule
                 </span>
