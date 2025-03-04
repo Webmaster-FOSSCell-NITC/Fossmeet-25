@@ -19,7 +19,7 @@ const ScheduleCard = ({
                 <div className="justify-between flex">
                 <h2 className="text-xl font-bold text-gray-800">{title}</h2>
                     <div className="flex items-center pt-[7px]">
-                    {speakerImageUrl && (
+                    {/* {speakerImageUrl && (
                         <div className="flex items-center pt-[7px]">
                             <Image
                                 src={speakerImageUrl}
@@ -29,7 +29,7 @@ const ScheduleCard = ({
                                 className="rounded-full"
                             />
                         </div>
-                    )}
+                    )} */}
                                     
                     </div>
                 </div>
