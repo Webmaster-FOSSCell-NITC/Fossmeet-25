@@ -66,7 +66,7 @@ function generateTimeSlots(startTime: Date, endTime: Date, interval: number) {
 export type Schedule = {
     date: `${number}-${number}-${number}`,
     events: Event[],
-}[]
+}
 
 type Event = {
     title: string;
