@@ -112,6 +112,16 @@ export default function Home() {
       image: "/landing-page/gect.svg",
       link: "https://www.instagram.com/fossgect?igsh=MWRpZmI5djA0bG56eQ=="
     },
+    {
+      name: "GECP",
+      image: "/landing-page/gecp.svg",
+      link: "https://www.instagram.com/fossgecp/"
+    },
+    {
+      name: "LBSITW",
+      image: "/landing-page/lbsitw.png",
+      link: "https://www.instagram.com/foss_club_lbsitw?igsh=ZGpzeWtqaG01N255"
+    },
   ];
   
 
