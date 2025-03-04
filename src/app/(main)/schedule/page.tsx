@@ -33,7 +33,7 @@ const Page = () => {
                                 Img: true,
                                 eventName: y.title,
                                 time: y.time,
-                                speaker: y.speaker ? y.speaker.name : "Unknown",
+                                speaker: y.speaker ? y.speaker.name : "",
                                 img: y.speaker && y.speaker.speakerImageUrl ? (y.speaker.speakerImageUrl) : undefined,
                     
                             });
@@ -42,7 +42,7 @@ const Page = () => {
                                 Img: true,
                                 eventName: y.title,
                                 time: y.time,
-                                speaker: y.speaker ? y.speaker.name : "Unknown",
+                                speaker: y.speaker ? y.speaker.name : "",
                                 img: y.workshop?.logoUrl ,
                             });
                         } else {
@@ -95,7 +95,7 @@ const Page = () => {
                             key={index}
                             title={event.eventName}
                             speakerImageUrl={event.img}
-                            speakerName={event.speaker || "Unknown"}
+                            speakerName={event.speaker || ""}
                             time={event.time}
                             
                         />
