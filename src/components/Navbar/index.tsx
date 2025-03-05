@@ -30,6 +30,11 @@ const Navbar = () => {
             name: 'Gallery',
             route: '/gallery',
             newTab: true
+        },
+        {
+            name: 'Schedule',
+            route: '/schedule',
+            newTab: false
         }
     ], []);
 

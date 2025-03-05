@@ -11,3 +11,16 @@ export type SpeakerDetails = SpeakerCardProps & {
 };
 
 export type WorkshopDetails = WorkshopCardProps;
+
+export type EventDetails = {
+    title: string;
+    time: string;
+    type: '' | 'workshop' | 'speaker';
+    speaker: SpeakerDetails | null;  
+    workshop: WorkshopDetails | null; 
+};
+
+export type ScheduleDetails = {
+    date: Date;
+    events: EventDetails[];
+};
