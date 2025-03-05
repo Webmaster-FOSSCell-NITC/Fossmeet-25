@@ -5,6 +5,8 @@ import { useEffect, useState } from "react"
 import ScheduleCard from "@/components/Cards/ScheduleCard";
 import Container from "@/components/Container";
 import styles from "../styles.module.css";
+import { motion, useScroll, useTransform } from "framer-motion";
+
 
 const Page = () => {
     const [tabNo, setTabno] = useState(1);
@@ -42,7 +44,7 @@ const Page = () => {
                                 Img: true,
                                 eventName: y.title,
                                 time: y.time,
-                                speaker: y.speaker ? y.speaker.name : "",
+                                speaker: y.workshop?.speakerName ? y.workshop.speakerName : "",
                                 img: y.workshop?.logoUrl ,
                             });
                         } else {
@@ -88,7 +90,19 @@ const Page = () => {
 
             <div className="flex flex-col items-center gap-4 min-h-screen py-6 w-full">
                 {loading ? (
-                    <p>Loading...</p>
+                    <div className="w-full h-full flex gap-1 justify-center items-center">
+                    <h1 className="text-secondary text-2xl">Loading</h1>
+                    <div className="flex space-x-1">
+                        {[0, 1, 2].map((i) => (
+                            <motion.span
+                                key={i}
+                                className={`w-1 h-1 bg-primary rounded-full`}
+                                animate={{ y: [0, 8, 0] }}
+                                transition={{ duration: 0.6, repeat: Infinity, delay: i * 0.2 }}
+                            />
+                        ))}
+                    </div>
+                </div>
                 ) : (
                     scheduleData[tabNo - 1].map((event, index) => (
                         <ScheduleCard
